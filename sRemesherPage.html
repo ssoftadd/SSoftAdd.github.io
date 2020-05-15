@@ -1,0 +1,47 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<h1>S-Remesher</h1>
+			<p class="lastUpdate">Last update: 21.11.2019</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>this addon implement two open-source algorithm for remeshing of polygon mesh objects: <a class="generalLink" href="https://github.com/wjakob/instant-meshes">Instant Meshes</a> and <a class="generalLink" href="https://github.com/hjwdzh/QuadriFlow">QuadriFlow</a>.</p>
+			
+			<p><b>Download: </b><a class="generalLink" href="download/SRemesher.dll">S-Remesher addon</a>, sources on the <a class="generalLink" href="https://github.com/Tugcga/SRemesher">GitHub</a></p>
+			
+			<p><b>How to install:</b> copy *.dll file to any workgroup and restart Softimage. Also this addon requires <a class="generalLink" href="download/tbb.dll">tbb.dll</a> (download it and place it in the same folder as SRemesher.dll) and vc14 runtime on the system (download <i>Visual C++ Redistributable for Visual Studio 2015</i> package from <a class="generalLink" href="https://www.microsoft.com/en-US/download/details.aspx?id=53840">here</a> and install it).</p>
+			
+			<p><b>How to use: </b> Select any polygon mesh and choose Create - Poly. Mesh - SRemesher - Instant Meshes or QuadriFlow. The new remeshed object will be created.</p>
+			
+			<p><b>Instant Meshes</b></p>
+			
+			<img src="images/sRemesher_01_instantMeshes.png" class="center"/>
+			
+			<p>There are two parameters for controlling of the target geometry polygons count: Edge Length and Faces Count. If both parameters are equal to -1, then the target mesh will be created with approximately 1/16 polygons of the original mesh. If Edge Length is greater than 0, then the new mesh will be created with polygons of this side. For controlling polygons density by hand, set Edge Length to -1 and set the desired number of polygons for the second parameter.</p>
+			
+			<p>Parameter Object Scale sometimes helps to make remeshing more accurate. It virtually scale the original mesh, make remeshing and then scale it back.</p>
+			
+			<p><b>QuadriFlow</b></p>
+			
+			<img src="images/sRemesher_02_quadriFlow.png" class="center"/>
+			
+			<p>There is only one parameter for controlling target polygons count: Faces Count. If this parameter is equal to -1, then target mesh will be created approximately 1/16 polygons of the original mesh.</p>
+			
+			<p><b>Comparison</b></p>
+			
+			<img src="images/sRemesher_03_comparison.png" class="center"/>
+			
+			<p>Instant Meshes works much faster than QuadriFlow, because it multi-threaded. QuadriFlow works only on the single thread. But the mesh, obtained from Quadri Flow, is more accurate. Current implementation of the Instant Meshes works in automatic mode. The standalone application (available at the <a class="generalLink" href="https://github.com/wjakob/instant-meshes">repository</a>) have more options and can produce more accurate mesh.</p>
+			
+        </div>
+		</div>
+	</body>
+
+</html>

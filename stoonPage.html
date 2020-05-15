@@ -1,0 +1,51 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<img src="images/SToon/SToon_banner.png" class="center"/>
+			<p class="lastUpdate">Last update: 14.04.2019</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>This addon is a port for the <a class="generalLink" href="https://blendermarket.com/products/toonkit-for-cycles">Toonkit for Cycles</a> addon for Blender. The addon use <a class="generalLink" href="syclesPage.html">Sycles</a> (Cycles render integration into Softimage) as a render engine and OSL as shading system, but all shaders may be used with other render engine which supports osl-shaders.</p>
+			
+			<p><b>Download: </b><a class="generalLink" href="download/SToon_1.0.xsiaddon">version 1.0</a></p>
+			
+			<p><b>Documentation:</b>
+			<ul class="leftSpacing">
+				<li> <a class="generalLink" href="http://cogumelosoftworks.com/index.php/toonkit/">Official documentaion</a> for Blender addon
+				<li> <a class="generalLink" href="manuals/SToon_references_eng.pdf">Short introduction</a> in english
+				<li> <a class="generalLink" href="manuals/SToon_references_rus.pdf">Short introduction</a> in russian
+			</ul>
+			</p>
+			
+			<p><b>How to use: </b> Install as usual addon for Softimage. Next go to <i>Render - Scene Options</i></p>
+			
+			<img src="images/SToon/how_start_01.png" class="center"/>
+			
+			<p>and select <i>Cycles Renderer</i> as Scene Renderer.</p>
+			
+			<img src="images/SToon/how_start_02.png" class="center"/>
+			
+			<p>Next in render properties in the tab <i>Performance</i> set <i>Shading System</i> as OSL.</p>
+			
+			<img src="images/SToon/how_start_03.png" class="center"/>
+			
+			<p><b>Warning:</b> There is nonctitical bug. Addon contains four nodes <i>SToon Easy Toon</i>, <i>SToon Scene Shading</i>, <i>SToon Scene Light</i> and <i>SToon Scene Shadow</i> which are used to collect data about light sources in the scene. This data collection occurs every time before the frame is rendered if the scene renderer is <i>Cycles Renderer</i> (that is why we select it in the previous section. For other scene renderers this event is skipped). Sometimes, if the addon should change the data inside these nodes, the Render Tree window is blocked and can not be changed after render finish. Simply close the Render Tree window and open it again.</p>
+			
+			<p><b>Render examples:</b></p>
+			
+			<img src="images/SToon/SToon_quadBot.png" class="center"/>
+			
+			<img src="images/SToon/SToon_bike_lineart.png" class="center"/>
+			
+        </div>
+		</div>
+	</body>
+
+</html>

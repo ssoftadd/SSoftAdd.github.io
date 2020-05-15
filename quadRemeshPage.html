@@ -1,0 +1,45 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<h1>Quad Remesher</h1>
+			<p class="lastUpdate">Last update: 01.12.2019</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>this is Softimage version of the plugin <a class="generalLink" href="https://exoside.com/quadremesher/">Quad Remesher</a></p>
+			
+			<p><b>Download: </b><a class="generalLink" href="download/QuadRemesher.xsiaddon">QuadRemesher addon</a></p>
+			
+			<p><b>How to install:</b> install as usual addon for Softimage. After installation in the Plugin Manager the xremesh.dll will be indicated as invalid file. All correct, this dll-file does not needed for the addon.</p>
+			
+			<img src="images/quadRemesh_02.png" class="center"/>
+			
+			<p><b>How it works:</b> this addon is a bridge between Softimage and standalone application xremesh.exe located in the /Application/Plugins/QuadRemesherEngine folder inside installed addon directory. The addon packed with cracked version of this application, so, it works without any license. If you have some moral problems when using some illegal software, buy the application in <a class="generalLink" href="https://exoside.com/quadremesher/quadremesher-buy/">this site</a> for Blender (for example), and replace it in the addon folder.</p>
+			
+			<p>Application xremesh.exe get 3d-model in the fbx-format and return result also in the fbx-format. During remeshing process, it creates the file progress.txt and communicate with other applications through this file. To start remesh process, select one polygonmesh object and click Create - Poly. Mesh - Quad Remesher - Quad Remesher. The modal window with parameters will appear.</p>
+			
+			<img src="images/quadRemesh_03.png" class="center"/>
+			
+			<p>Set parameters and click Ok. After that the selected object will be export as *.fbx file and special timer will starts. This timer check the file process.txt and after the remeshing is done, then resulting *.fbx file will be imported back to the Softimage. All fbx-files stores in /Modles/QuadRemesher Store/ folder inside active project directory.</p>
+			
+			<p>You can manually stop the timer, if the remeshing process crashed. Simply click Creat - Poly. Mesh - Quad Remesher - Stop Update Timer. Also you should stop the xremesh application in the task manager. Sometimes, after remeshing is finish, the Softimage report that there is no file to import. It is because this file is not created, when the timer check the finish of the remeshing process. Simply import it manualy, or restart remeshing process.</p>
+			
+			<p><b>Comparison:</b> Quad Remesher produce the most accurate mesh compared to <a class="generalLink" href="https://github.com/wjakob/instant-meshes">Instant Meshes</a> and <a class="generalLink" href="https://github.com/hjwdzh/QuadriFlow">QuadriFlow</a>.</p>
+			
+			<img src="images/quadRemesh_01.png" class="center"/>
+			
+			<p><b>How to use Vertex Color:</b> it's possible to control the relative density of the mesh by using vertex colors. The neutral color is white (rbg = (1.0, 1.0, 1.0)). The red color (rgb = (1.0, 0.0, 0.0)) indicates the x4 density of polygons. The cyan color (rgb = (0.0, 1.0, 1.0)) indicates x0.25 density of polygons. Middle values indicates some middle density. For example, color rgb = (1.0, 0.5, 0.5) indicates x2 density, and so on. In the image bellow at the left the plane with colored vertices, at the right the plane after remeshing.</p>
+			
+			<img src="images/quadRemesh_04.png" class="center"/>
+			
+        </div>
+		</div>
+	</body>
+
+</html>

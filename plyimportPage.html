@@ -1,0 +1,49 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<h1>Ply importer</h1>
+			<p class="lastUpdate">Last update: 15.10.2017</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>This plugin allows you to import *.ply files into Softimage. It based on the <a  class="generalLink" href="http://w3.impa.br/~diego/software/rply/">rply library</a> for working with ply-format. The plugin recognizes the following properties:
+			<ul class="left">
+				<li> vertex element:
+					<ul class="left">
+						<li> <i>x, y, z</i> as point positions
+						<li> <i>nx, ny, nz</i> as point normals
+						<li> <i>s, t</i> as uv-coordiantes
+						<li> <i>u, v</i> as uv-coordinates
+						<li> <i>red, green, blue</i> as vertex colors
+						<li> <i>r, g ,b</i> as vertex colors
+					</ul>
+				<li> face element:
+					<ul class="left">
+						<li> <i>vertex_indices</i> as polygons points indeces
+					</ul>
+			</ul></p>
+			
+			<p><b>Download: </b><a class="generalLink" href="download/PlyImporter_1.1.xsiaddon">Addon Ver. 1.1</a>  and <a class="generalLink" href="download/PlyProcessor_source.zip">source</a> of the dll-library inside the xsiaddon.</p>
+			
+			<p><b>How to use: </b> Install as usual addon for Softimage. Open import window by File - Import - Ply File...</p>
+			
+			<img src="images/plyImage_01_text.png" class="center"/>
+			
+			<p>Choose the *.ply-file, select checkboxes for importing uv-coordinates, normals and vertex colors and press Import.</p>
+			
+			<img src="images/plyImage_02_text.png" class="center"/>
+			
+			<p>Vertex color data stores on the imported object cluster.</p>
+			
+			<img src="images/plyImage_03_text.png" class="center"/>
+        </div>
+		</div>
+	</body>
+
+</html>

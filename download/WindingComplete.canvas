@@ -1,0 +1,4548 @@
+{
+  "objectType" : "Graph",
+  "metadata" : {
+    "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+    "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }",
+    "uiGraphZoom" : "{\n  \"value\" : 1.0\n  }",
+    "uiGraphPan" : "{\n  \"x\" : -439.0692138671875,\n  \"y\" : -247.0759887695313\n  }"
+    },
+  "title" : "WindingComplete",
+  "ports" : [
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "In",
+      "defaultValues" : {
+        "PolygonMesh" : null
+        },
+      "name" : "windingMesh",
+      "execPortType" : "Out"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "PolygonMesh" : null
+        },
+      "name" : "baseMesh",
+      "execPortType" : "In"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Xfo" : {
+          "ori" : {
+            "v" : {
+              "x" : 0,
+              "y" : 0,
+              "z" : 0
+              },
+            "w" : 1
+            },
+          "tr" : {
+            "x" : 0,
+            "y" : 0,
+            "z" : 0
+            },
+          "sc" : {
+            "x" : 1,
+            "y" : 1,
+            "z" : 1
+            }
+          }
+        },
+      "name" : "baseMeshXfo",
+      "execPortType" : "In",
+      "typeSpec" : "Xfo"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Vec3" : {
+          "x" : 0,
+          "y" : 0,
+          "z" : 0
+          }
+        },
+      "name" : "axisVector",
+      "execPortType" : "In"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Vec3" : {
+          "x" : 0,
+          "y" : 0,
+          "z" : 0
+          }
+        },
+      "name" : "firstPoint",
+      "execPortType" : "In"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Vec3" : {
+          "x" : 0,
+          "y" : 0,
+          "z" : 0
+          }
+        },
+      "name" : "secondPoint",
+      "execPortType" : "In"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Integer" : 10
+        },
+      "name" : "segmentsCount",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.5
+        },
+      "name" : "segmentLength",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0
+        },
+      "name" : "turbulizeAmount",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.699999988079071
+        },
+      "name" : "turbulizeFrequency",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 1
+        },
+      "name" : "width",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Integer" : 2
+        },
+      "name" : "widthSegments",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 0.1000000014901161
+        },
+      "name" : "thickness",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "String" : ""
+        },
+      "name" : "switchDirectionString",
+      "execPortType" : "In",
+      "typeSpec" : "String"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Integer" : 6
+        },
+      "name" : "switchDirectionNeighborhood",
+      "execPortType" : "In",
+      "typeSpec" : "Integer"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Boolean" : true
+        },
+      "name" : "isDeintersect",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 1
+        },
+      "name" : "edgeAlignWeight",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Boolean" : false
+        },
+      "name" : "isApplyShell",
+      "execPortType" : "In",
+      "typeSpec" : "Boolean"
+      },
+    {
+      "objectType" : "Port",
+      "metadata" : {
+        "uiPersistValue" : "true"
+        },
+      "nodePortType" : "Out",
+      "defaultValues" : {
+        "Scalar" : 1
+        },
+      "name" : "shellVisualCoefficient",
+      "execPortType" : "In",
+      "typeSpec" : "Scalar"
+      }
+    ],
+  "extDeps" : {},
+  "nodes" : [
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Number of segments",
+        "uiGraphPos" : "{\"x\":-201.0,\"y\":392.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Integer_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Integer" : 7
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Integer",
+      "presetGUID" : "70A8710A81C6715B65874101A33CC86E"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "One segment length",
+        "uiGraphPos" : "{\"x\":-213.0,\"y\":495.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Scalar_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.5
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Scalar",
+      "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":531.2779541015625,\"y\":-120.1024551391602}"
+        },
+      "name" : "Cache_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":102.2062301635742,\"y\":63.10311508178711}"
+        },
+      "name" : "Cache_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":123.0,\"y\":182.0}"
+        },
+      "name" : "Cache_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":104.0,\"y\":316.0}"
+        },
+      "name" : "Cache_4",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":106.0,\"y\":426.0}"
+        },
+      "name" : "Cache_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":105.0,\"y\":491.0}"
+        },
+      "name" : "Cache_6",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":289.1413879394531,\"y\":-177.3804779052734}"
+        },
+      "name" : "PrepareMesh",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "inMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "preparedMesh"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "PrepareMesh",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "inMesh",
+            "execPortType" : "In",
+            "typeSpec" : "PolygonMesh"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "preparedMesh",
+            "execPortType" : "Out",
+            "typeSpec" : "PolygonMesh"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry {
+  preparedMesh = inMesh;
+  GenericValueContainer options = GenericValueContainer();
+  PrepareForSpatialQueries_setSparseGrid(options);
+  preparedMesh.prepareForSpatialQueries(1000, options);
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Width",
+        "uiGraphPos" : "{\"x\":-205.0,\"y\":786.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Scalar_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Scalar",
+      "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Width segments",
+        "uiGraphPos" : "{\"x\":-214.0,\"y\":870.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Integer_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Integer" : 2
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Integer",
+      "presetGUID" : "70A8710A81C6715B65874101A33CC86E"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":137.0,\"y\":792.0}"
+        },
+      "name" : "Cache_7",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":182.0,\"y\":883.0}"
+        },
+      "name" : "Cache_8",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Thickness",
+        "uiGraphPos" : "{\"x\":-208.8585662841797,\"y\":980.44873046875}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Scalar_6",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.1000000014901161
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Scalar",
+      "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":210.0,\"y\":1015.0}"
+        },
+      "name" : "Cache_9",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Switch array string",
+        "uiGraphPos" : "{\"x\":-211.0,\"y\":685.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "String_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "String" : "60"
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.String",
+      "presetGUID" : "05B3595200AC2F01BD967056AC5A1268"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-68.0,\"y\":679.0}"
+        },
+      "name" : "ParseString",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "str"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "array"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "title" : "ParseString",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "str",
+            "execPortType" : "In",
+            "typeSpec" : "String"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "array",
+            "execPortType" : "Out",
+            "typeSpec" : "Integer[]"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  array.resize(0);
+  String parts[] = str.split(\" \");
+  for(Size i = 0; i < parts.size(); i++)
+  {
+    Integer v = parts[i].toInteger();
+    if(v > 0)
+    {
+      array.push(v);
+    }
+  }
+  //result = lhs + rhs;
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":167.0,\"y\":687.0}"
+        },
+      "name" : "Cache_10",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Transfer width",
+        "uiGraphPos" : "{\"x\":-209.0,\"y\":598.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Integer_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Integer" : 20
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Integer",
+      "presetGUID" : "70A8710A81C6715B65874101A33CC86E"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":143.0,\"y\":581.0}"
+        },
+      "name" : "Cache_11",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Visual shell coefficient",
+        "uiGraphPos" : "{\"x\":-139.5,\"y\":1269.0}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Scalar_7",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 1
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Scalar",
+      "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":52.5,\"y\":1260.0}"
+        },
+      "name" : "Cache_12",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-49.0,\"y\":976.0}"
+        },
+      "name" : "MinClamp",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.009999999776482582
+            },
+          "name" : "limit"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "MinClampScalar",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "value",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "limit",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "$TYPE$"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  if(value < limit)
+  {
+    result = limit;
+  }
+  else
+  {
+    result = value;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-48.0,\"y\":866.0}"
+        },
+      "name" : "MinClamp_2",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.009999999776482582,
+            "Integer" : 1
+            },
+          "name" : "limit"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "MinClampScalar",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "value",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "limit",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "$TYPE$"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  if(value < limit)
+  {
+    result = limit;
+  }
+  else
+  {
+    result = value;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-54.0,\"y\":765.0}"
+        },
+      "name" : "MinClamp_3",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.009999999776482582
+            },
+          "name" : "limit"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "MinClampScalar",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "value",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "limit",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "$TYPE$"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  if(value < limit)
+  {
+    result = limit;
+  }
+  else
+  {
+    result = value;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-54.0,\"y\":573.0}"
+        },
+      "name" : "MinClamp_4",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.009999999776482582
+            },
+          "name" : "limit"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "MinClampScalar",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "value",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "limit",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "$TYPE$"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  if(value < limit)
+  {
+    result = limit;
+  }
+  else
+  {
+    result = value;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-55.0,\"y\":480.0}"
+        },
+      "name" : "MinClamp_5",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.009999999776482582
+            },
+          "name" : "limit"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "MinClampScalar",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "value",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "limit",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "$TYPE$"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  if(value < limit)
+  {
+    result = limit;
+  }
+  else
+  {
+    result = value;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-57.0,\"y\":381.0}"
+        },
+      "name" : "MinClamp_6",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Scalar" : 0.009999999776482582,
+            "Integer" : 2
+            },
+          "name" : "limit"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Func",
+        "metadata" : {
+          "uiTextColor" : "{\n  \"r\" : 20,\n  \"g\" : 20,\n  \"b\" : 20\n  }",
+          "uiNodeColor" : "{\n  \"r\" : 121,\n  \"g\" : 134,\n  \"b\" : 143\n  }"
+          },
+        "title" : "MinClampScalar",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "value",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "limit",
+            "execPortType" : "In",
+            "typeSpec" : "$TYPE$"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "result",
+            "execPortType" : "Out",
+            "typeSpec" : "$TYPE$"
+            }
+          ],
+        "extDeps" : {},
+        "code" : "dfgEntry 
+{
+  if(value < limit)
+  {
+    result = limit;
+  }
+  else
+  {
+    result = value;
+  }
+}
+"
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiComment" : "Apply thickness",
+        "uiGraphPos" : "{\"x\":-166.6642761230469,\"y\":1132.666381835938}",
+        "uiCommentExpanded" : "true"
+        },
+      "name" : "Boolean_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "defaultValues" : {
+            "Boolean" : false
+            },
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Constants.Boolean",
+      "presetGUID" : "AC57A4CE7AD2AF05FAECFA35F4E8C2F6"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":52.835693359375,\"y\":1148.666381835938}"
+        },
+      "name" : "Cache_13",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1720.33349609375,\"y\":734.6397705078125}"
+        },
+      "name" : "CreateStripAlongVertices",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "windingMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "corePositions"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "width"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "widthSegments"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "baseMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "edgeAlignWeight"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "thickness"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "shellVisualCoefficient"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "isApplyShell"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "isDeintersect"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiGraphZoom" : "{\n  \"value\" : 1.0\n  }",
+          "uiGraphPan" : "{\n  \"x\" : -1164.723388671875,\n  \"y\" : -654.0790405273438\n  }"
+          },
+        "title" : "CreateStripAlongVertices",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "windingMesh",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "corePositions",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "width",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "widthSegments",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "baseMesh",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Scalar" : 1
+              },
+            "name" : "edgeAlignWeight",
+            "execPortType" : "In",
+            "typeSpec" : "Scalar"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "thickness",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "shellVisualCoefficient",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "isApplyShell",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "defaultValues" : {
+              "Boolean" : false
+              },
+            "name" : "isDeintersect",
+            "execPortType" : "In",
+            "typeSpec" : "Boolean"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1021.446655273438,\"y\":611.1580810546875}"
+              },
+            "name" : "BuildMesh",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "centerPoints"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "width"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "widthSegments"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "mesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "inputMesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 0.1000000014901161
+                  },
+                "name" : "thickness"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "vertexPositions"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "BuildMesh",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "centerPoints",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "width",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "widthSegments",
+                  "execPortType" : "In",
+                  "typeSpec" : "Integer"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "mesh",
+                  "execPortType" : "Out",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "inputMesh",
+                  "execPortType" : "In",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "thickness",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "vertexPositions",
+                  "execPortType" : "Out",
+                  "typeSpec" : "Vec3[]"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "function Vec3 GetNormal(in PolygonMesh mesh, in Vec3 point)
+{
+  GeometryLocation location = mesh.getClosest(point, Vec3(1, 1, 1), SCALAR_INFINITE);
+  return mesh.getNormalAtLocation(location);
+}
+
+function Vec3[] GetNormalAndPosition(in PolygonMesh mesh, in Vec3 point)
+{
+  GeometryLocation location = mesh.getClosest(point, Vec3(1, 1, 1), SCALAR_INFINITE);
+  Vec3 toReturn[];
+  toReturn.resize(2);
+  toReturn[0] = mesh.getPositionAtLocation(location);
+  toReturn[1] = mesh.getNormalAtLocation(location);
+  return toReturn;
+}
+
+dfgEntry 
+{
+  mesh = PolygonMesh();
+  vertexPositions.resize(0);
+  mesh.beginStructureChanges();
+  
+  mesh.createPoints((widthSegments + 1) * centerPoints.size());
+  
+  Vec3 dVector;
+  for(Size i = 0; i < centerPoints.size(); i++)
+  {
+    if(i < centerPoints.size() - 1)
+    {
+      dVector = centerPoints[i + 1] - centerPoints[i];
+    }
+
+    Vec3 n = GetNormal(inputMesh, centerPoints[i]);
+    Vec3 sideVector = n.cross(dVector);
+    sideVector.normalize();
+    for(Size j = 0; j < widthSegments + 1; j++)
+    {
+      Scalar shift = (width / widthSegments) * j - width / 2;
+      Vec3 vPosition = centerPoints[i] + shift * sideVector;
+      Vec3 posAndNormal[] = GetNormalAndPosition(inputMesh, vPosition);
+      Vec3 p = posAndNormal[0] + thickness * posAndNormal[1];
+      vertexPositions.push(p);
+      mesh.setPointPosition(i * (widthSegments + 1) + j, p);
+    }
+  }
+  
+  //Create polygons
+  for(Size i = 0; i < centerPoints.size() - 1; i++)
+  {
+    for(Size j = 0; j < widthSegments; j++)
+    {
+      Size i1 = i * (widthSegments + 1) + j;
+      Size i2 = i1 + 1;
+      Size i3 = i1 + widthSegments + 1;
+      Size i4 = i3 + 1;
+      mesh.addPolygon(i1, i3, i4, i2);
+    }
+  }
+  
+  
+  mesh.endStructureChanges();
+  mesh.recomputePointNormals();
+  //result = lhs + rhs;
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1342.861694335938,\"y\":834.992431640625}"
+              },
+            "name" : "Deintersection",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "mesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "collisionMesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "thickness"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "newPositions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "widthSegments"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 5
+                  },
+                "name" : "intersectionThickness"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "Deintersection",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "IO",
+                  "name" : "mesh",
+                  "execPortType" : "IO",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "collisionMesh",
+                  "execPortType" : "In",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "thickness",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "newPositions",
+                  "execPortType" : "Out",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "widthSegments",
+                  "execPortType" : "In",
+                  "typeSpec" : "Integer"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "intersectionThickness",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "operator MakeNewPositions<<<index>>>(Ref<SpatialQueryable> meshQuery, PolygonMesh mesh, Vec3[] allPointPositions, io Vec3[] newPositions, PolygonMesh collisionMesh, Scalar thickness, Integer widthSegments, Scalar intersectionThickness)
+{
+  Ref<SpatialQuery> query = meshQuery.beginSpatialQuery();
+  
+  GeometryLocation location = collisionMesh.getClosest(allPointPositions[index], Vec3(1.0, 1.0, 1.0), SCALAR_INFINITE);
+  Vec3 rootPosition = collisionMesh.getPositionAtLocation(location);
+  Vec3 toPoint = allPointPositions[index] - rootPosition;
+  toPoint.normalize();
+  Vec3 tipPosition = rootPosition + toPoint * intersectionThickness;
+    
+  Size intersectionCount = query.getLineIntersections(rootPosition, tipPosition, SpatialQuery_segmentIntersection);
+  if(intersectionCount > 1)
+  {
+    Integer pointPolygonIndex = mesh.getPointPolygon(index, 0);
+    //Find the number of intersections with less polygon index
+    Size n = 0;
+    for(Size j = 0; j < intersectionCount; j++)
+    {
+      GeometryLocation jLoc = query.getQueriedLocation(j);
+      Integer pIndex = mesh.getLocationPolygon(jLoc);
+      if(pIndex + widthSegments < pointPolygonIndex)
+      {
+        n++;
+      }
+    }
+    
+    newPositions[index] = rootPosition + (n+1)*thickness * toPoint;
+  }
+  else
+  {
+    newPositions[index] = allPointPositions[index];
+  }
+  mesh.endSpatialQuery(query);
+}
+
+dfgEntry 
+{
+  GenericValueContainer options = GenericValueContainer();
+  PrepareForSpatialQueries_setSparseGrid(options);
+
+  Vec3 allPointPositions[] = mesh.getAllPointPositions();
+  mesh.prepareForSpatialQueries(mesh.pointCount(), options);
+  newPositions.resize(mesh.pointCount());
+
+  MakeNewPositions<<<mesh.pointCount()>>>(mesh, mesh, allPointPositions, newPositions, collisionMesh, thickness, widthSegments, intersectionThickness);
+  
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1745.0,\"y\":953.0}"
+              },
+            "name" : "MovePoints",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "IO",
+                "name" : "mesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "pointPositions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 1
+                  },
+                "name" : "edgeAlignWeight"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "widthSegments"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "MovePoints",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "IO",
+                  "name" : "mesh",
+                  "execPortType" : "IO",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "pointPositions",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "edgeAlignWeight",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "widthSegments",
+                  "execPortType" : "In",
+                  "typeSpec" : "Integer"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "function Vec3 GetArrayAverage(Vec3[] array)
+{
+  Vec3 toReturn(0, 0, 0);
+  for(Size i = 0; i < array.size(); i++)
+  {
+    toReturn = toReturn + array[i];
+  }
+  return toReturn / array.size();
+}
+
+operator AlignRow<<<rowIndex>>>(io PolygonMesh mesh, Vec3[] pointPositions, Scalar weight, Integer widthSegments)
+{
+  Integer rowPointsIndexes[];
+  rowPointsIndexes.resize(widthSegments + 1);
+  Vec3 rowPointsPositions[];
+  rowPointsPositions.resize(widthSegments + 1);
+  Vec3 normals[];
+  normals.resize(widthSegments + 1);
+  Vec3 deltas[];
+  deltas.resize(widthSegments + 1);
+  Scalar deltaLength[];
+  deltaLength.resize(widthSegments + 1);
+  for(Size i = 0; i < widthSegments + 1; i++)
+  {
+    rowPointsIndexes[i] = rowIndex * (widthSegments + 1) + i;
+    rowPointsPositions[i] = pointPositions[rowPointsIndexes[i]];
+    deltas[i] = rowPointsPositions[i] - mesh.getPointPosition(rowPointsIndexes[i]);
+    deltaLength[i] = deltas[i].length();
+    normals[i] = mesh.getPointNormal(rowPointsIndexes[i]);
+  }
+  Vec3 normal = GetArrayAverage(normals);
+  Scalar constArray[] = deltaLength;
+  Scalar coordArray[];
+  coordArray.resize(widthSegments + 1);
+  for(Size i = 0; i < widthSegments + 1; i++)
+  {
+    coordArray[i] = i;
+  }
+  
+  for(Size i = 0; i < widthSegments-1; i++)
+  {
+    Scalar midArray[];
+    Scalar midCoord[];
+    midArray.resize(widthSegments - i);
+    midCoord.resize(widthSegments - i);
+    for(Size j = 0; j < widthSegments - i; j++)
+    {
+      midArray[j] = (constArray[j] + constArray[j + 1]) / 2;
+      midCoord[j] = (coordArray[j] + coordArray[j + 1]) / 2;
+    }
+    constArray.resize(midArray.size());
+    constArray = midArray;
+    coordArray.resize(midCoord.size());
+    coordArray = midCoord;
+  }
+  Scalar k = (constArray[1] - constArray[0]) / (coordArray[1] - coordArray[0]);
+  Scalar b = constArray[0] - k * coordArray[0];
+  
+  Vec3 alignedPositions[];
+  alignedPositions.resize(widthSegments + 1);
+  for(Size i = 0; i < widthSegments + 1; i++)
+  {
+    alignedPositions[i] = mesh.getPointPosition(rowPointsIndexes[i]) + normal * (k * i + b);
+    
+    mesh.setPointPosition(rowPointsIndexes[i], alignedPositions[i] * weight + rowPointsPositions[i] * (1 - weight));
+  }
+  
+}
+
+operator MovePointTask<<<index>>>(io PolygonMesh mesh, Vec3[] pointPositions)
+{
+  mesh.setPointPosition(index, pointPositions[index]);
+}
+
+dfgEntry 
+{
+  if(edgeAlignWeight < 0.1)
+  {
+    MovePointTask<<<mesh.pointCount()>>>(mesh, pointPositions);
+  }
+  else
+  {
+    AlignRow<<<mesh.pointCount() / (widthSegments + 1)>>>(mesh, pointPositions, edgeAlignWeight, widthSegments);
+  }
+  
+  mesh.recomputePointNormals();
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1703.0,\"y\":1124.0}"
+              },
+            "name" : "MultScalars",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value01"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value02"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "MultScalars",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "value01",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "value02",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "result",
+                  "execPortType" : "Out",
+                  "typeSpec" : "Scalar"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "dfgEntry 
+{
+  result = value01 * value02;
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":2210.0,\"y\":977.0}"
+              },
+            "name" : "ApplyThickness",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "thickness"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "this"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "this_2"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Graph",
+              "metadata" : {
+                "uiGraphPan" : "{\n  \"x\" : 175.0,\n  \"y\" : 27.0\n  }"
+                },
+              "title" : "ApplyThickness",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "defaultValues" : {
+                    "Scalar" : 0
+                    },
+                  "name" : "thickness",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "this",
+                  "execPortType" : "In",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "this_2",
+                  "execPortType" : "Out",
+                  "typeSpec" : "PolygonMesh"
+                  }
+                ],
+              "extDeps" : {},
+              "nodes" : [
+                {
+                  "objectType" : "Inst",
+                  "metadata" : {
+                    "uiGraphPos" : "{\"x\":644.75,\"y\":280.5}"
+                    },
+                  "name" : "AddShell_1",
+                  "ports" : [
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "IO",
+                      "name" : "this"
+                      },
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "In",
+                      "name" : "thickness"
+                      }
+                    ],
+                  "executable" : "Fabric.Exts.Geometry.PolygonMesh.AddShell",
+                  "presetGUID" : "279618E702FDE6FD539AB8ABDAEE9A25"
+                  },
+                {
+                  "objectType" : "Inst",
+                  "metadata" : {
+                    "uiGraphPos" : "{\"x\":1032.0,\"y\":303.0}"
+                    },
+                  "name" : "RecomputeNormals_1",
+                  "ports" : [
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "In",
+                      "name" : "mesh"
+                      },
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "In",
+                      "name" : "hardAngleDegrees"
+                      },
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "Out",
+                      "name" : "result"
+                      }
+                    ],
+                  "executable" : "Fabric.Compounds.PolygonMesh.Modify.RecomputeNormals",
+                  "presetGUID" : "E469FC93B78CAC1D85111F400E87968E"
+                  },
+                {
+                  "objectType" : "Inst",
+                  "metadata" : {
+                    "uiGraphPos" : "{\"x\":382.0,\"y\":160.0}"
+                    },
+                  "name" : "PushAlongNormals",
+                  "ports" : [
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "IO",
+                      "name" : "mesh"
+                      },
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "In",
+                      "name" : "shift"
+                      }
+                    ],
+                  "definition" : {
+                    "objectType" : "Func",
+                    "title" : "PushAlongNormals",
+                    "ports" : [
+                      {
+                        "objectType" : "Port",
+                        "nodePortType" : "IO",
+                        "name" : "mesh",
+                        "execPortType" : "IO",
+                        "typeSpec" : "PolygonMesh"
+                        },
+                      {
+                        "objectType" : "Port",
+                        "nodePortType" : "Out",
+                        "name" : "shift",
+                        "execPortType" : "In",
+                        "typeSpec" : "Scalar"
+                        }
+                      ],
+                    "extDeps" : {},
+                    "code" : "operator PushTask<<<index>>>(io PolygonMesh mesh, Scalar shift)
+{
+  Vec3 pos = mesh.getPointPosition(index);
+  Vec3 normal = mesh.getPointNormal(index);
+  
+  mesh.setPointPosition(index, pos + shift * normal);
+}
+
+dfgEntry 
+{
+  PushTask<<<mesh.pointCount()>>>(mesh, shift);
+  //result = lhs + rhs;
+}
+"
+                    }
+                  },
+                {
+                  "objectType" : "Inst",
+                  "metadata" : {
+                    "uiGraphPos" : "{\"x\":231.0,\"y\":282.0}"
+                    },
+                  "name" : "MultScalars",
+                  "ports" : [
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "In",
+                      "name" : "value01"
+                      },
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "In",
+                      "defaultValues" : {
+                        "Scalar" : -0.5
+                        },
+                      "name" : "value02"
+                      },
+                    {
+                      "objectType" : "InstPort",
+                      "nodePortType" : "Out",
+                      "name" : "result"
+                      }
+                    ],
+                  "definition" : {
+                    "objectType" : "Func",
+                    "title" : "MultScalars",
+                    "ports" : [
+                      {
+                        "objectType" : "Port",
+                        "nodePortType" : "Out",
+                        "name" : "value01",
+                        "execPortType" : "In",
+                        "typeSpec" : "Scalar"
+                        },
+                      {
+                        "objectType" : "Port",
+                        "nodePortType" : "Out",
+                        "name" : "value02",
+                        "execPortType" : "In",
+                        "typeSpec" : "Scalar"
+                        },
+                      {
+                        "objectType" : "Port",
+                        "nodePortType" : "In",
+                        "name" : "result",
+                        "execPortType" : "Out",
+                        "typeSpec" : "Scalar"
+                        }
+                      ],
+                    "extDeps" : {},
+                    "code" : "dfgEntry 
+{
+  result = value01 * value02;
+}
+"
+                    }
+                  }
+                ],
+              "connections" : {
+                "thickness" : [
+                  "AddShell_1.thickness",
+                  "MultScalars.value01"
+                  ],
+                "this" : [
+                  "PushAlongNormals.mesh"
+                  ],
+                "AddShell_1.this" : [
+                  "RecomputeNormals_1.mesh"
+                  ],
+                "RecomputeNormals_1.result" : [
+                  "this_2"
+                  ],
+                "PushAlongNormals.mesh" : [
+                  "AddShell_1.this"
+                  ],
+                "MultScalars.result" : [
+                  "PushAlongNormals.shift"
+                  ]
+                }
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":2488.0,\"y\":869.0}"
+              },
+            "name" : "If_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "cond"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "if_true"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "if_false"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Core.Control.If",
+            "presetGUID" : "3182A478A21643455D549E483D35F831"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":991.7233276367188,\"y\":970.0790405273438}"
+              },
+            "name" : "Boolean_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Constants.Boolean",
+            "presetGUID" : "AC57A4CE7AD2AF05FAECFA35F4E8C2F6"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1999.723388671875,\"y\":815.0790405273438}"
+              },
+            "name" : "If_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "cond"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "if_true"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "if_false"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Core.Control.If",
+            "presetGUID" : "3182A478A21643455D549E483D35F831"
+            }
+          ],
+        "connections" : {
+          "corePositions" : [
+            "BuildMesh.centerPoints"
+            ],
+          "width" : [
+            "BuildMesh.width"
+            ],
+          "widthSegments" : [
+            "BuildMesh.widthSegments",
+            "Deintersection.widthSegments",
+            "MovePoints.widthSegments"
+            ],
+          "baseMesh" : [
+            "BuildMesh.inputMesh",
+            "Deintersection.collisionMesh"
+            ],
+          "edgeAlignWeight" : [
+            "MovePoints.edgeAlignWeight"
+            ],
+          "thickness" : [
+            "BuildMesh.thickness",
+            "Deintersection.thickness",
+            "MultScalars.value01"
+            ],
+          "shellVisualCoefficient" : [
+            "MultScalars.value02"
+            ],
+          "isApplyShell" : [
+            "If_1.cond"
+            ],
+          "isDeintersect" : [
+            "Boolean_1.value"
+            ],
+          "BuildMesh.mesh" : [
+            "Deintersection.mesh",
+            "If_2.if_false"
+            ],
+          "Deintersection.mesh" : [
+            "MovePoints.mesh"
+            ],
+          "Deintersection.newPositions" : [
+            "MovePoints.pointPositions"
+            ],
+          "MovePoints.mesh" : [
+            "If_2.if_true"
+            ],
+          "MultScalars.result" : [
+            "ApplyThickness.thickness"
+            ],
+          "ApplyThickness.this_2" : [
+            "If_1.if_true"
+            ],
+          "If_1.result" : [
+            "windingMesh"
+            ],
+          "Boolean_1.value" : [
+            "If_2.cond"
+            ],
+          "If_2.result" : [
+            "ApplyThickness.this",
+            "If_1.if_false"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":1117.069213867188,\"y\":524.5759887695313}"
+        },
+      "name" : "Turbulize",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "originalPositions"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "turbulizeAmount"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "turbulizeFrequency"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "alignedPositions"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "axis"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiGraphPan" : "{\n  \"x\" : -14.0,\n  \"y\" : -306.0\n  }"
+          },
+        "title" : "Turbulize",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "originalPositions",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "turbulizeAmount",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "turbulizeFrequency",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "alignedPositions",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "axis",
+            "execPortType" : "In"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1042.9306640625,\"y\":426.2889404296875}"
+              },
+            "name" : "TurbulizeVec3_1",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "positions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 0
+                  },
+                "name" : "time"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "center"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Vec3" : {
+                    "x" : 0,
+                    "y" : 0,
+                    "z" : 0
+                    }
+                  },
+                "name" : "amplitude"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "timeFrequency"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "spaceFrequency"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Compounds.Deform.TurbulizeVec3",
+            "presetGUID" : "53BF8DEA73A377D1A3223FEB08D62D1B"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":538.257080078125,\"y\":477.9802551269531}"
+              },
+            "name" : "Scalar_2",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 0
+                  },
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Constants.Scalar",
+            "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":549.019775390625,\"y\":551.9605102539063}"
+              },
+            "name" : "Vec3_4",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "x"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "y"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "z"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Exts.Math.Vec3.Vec3",
+            "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":349.068359375,\"y\":590.51708984375}"
+              },
+            "name" : "Scalar_3",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 0
+                  },
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Constants.Scalar",
+            "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":520.0,\"y\":684.0}"
+              },
+            "name" : "Vec3_5",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "x"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "y"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "z"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "executable" : "Fabric.Exts.Math.Vec3.Vec3",
+            "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":346.1071472167969,\"y\":692.38037109375}"
+              },
+            "name" : "Scalar_4",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "defaultValues" : {
+                  "Scalar" : 0.699999988079071
+                  },
+                "name" : "value"
+                }
+              ],
+            "executable" : "Fabric.Core.Constants.Scalar",
+            "presetGUID" : "E0E96C6E234F70063BC98887B83327DC"
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":1315.608154296875,\"y\":695.4396362304688}"
+              },
+            "name" : "AllignToUpVector",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "originalPositions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "shiftedPositions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "alignPositions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "upVector"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "AllignToUpVector",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "originalPositions",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "shiftedPositions",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "alignPositions",
+                  "execPortType" : "Out",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "upVector",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "dfgEntry 
+{
+  alignPositions.resize(0);
+  for(Size i = 0; i < originalPositions.size(); i++)
+  {
+    Vec3 a = shiftedPositions[i] - originalPositions[i];
+    alignPositions.push(originalPositions[i] + upVector * a.dot(upVector) / (upVector.lengthSquared()));
+  }
+}
+"
+              }
+            }
+          ],
+        "connections" : {
+          "originalPositions" : [
+            "TurbulizeVec3_1.positions",
+            "AllignToUpVector.originalPositions"
+            ],
+          "turbulizeAmount" : [
+            "Scalar_3.value"
+            ],
+          "turbulizeFrequency" : [
+            "Scalar_4.value"
+            ],
+          "axis" : [
+            "AllignToUpVector.upVector"
+            ],
+          "TurbulizeVec3_1.result" : [
+            "AllignToUpVector.shiftedPositions"
+            ],
+          "Scalar_2.value" : [
+            "TurbulizeVec3_1.time"
+            ],
+          "Vec3_4.result" : [
+            "TurbulizeVec3_1.amplitude"
+            ],
+          "Scalar_3.value" : [
+            "Vec3_4.x",
+            "Vec3_4.y",
+            "Vec3_4.z"
+            ],
+          "Vec3_5.result" : [
+            "TurbulizeVec3_1.spaceFrequency"
+            ],
+          "Scalar_4.value" : [
+            "Vec3_5.x",
+            "Vec3_5.y",
+            "Vec3_5.z"
+            ],
+          "AllignToUpVector.alignPositions" : [
+            "alignedPositions"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":666.976318359375,\"y\":264.3050537109375}"
+        },
+      "name" : "GenerateCorePositions",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "positions"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "baseMesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "axisVector"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "firstPoint"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "secondPoint"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "pointsNumber"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "oneSegmentLength"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "switchDirectionArray"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "switchDirectionNeighborhood"
+          }
+        ],
+      "definition" : {
+        "objectType" : "Graph",
+        "metadata" : {
+          "uiGraphPan" : "{\n  \"x\" : 111.0,\n  \"y\" : -70.0\n  }"
+          },
+        "title" : "GenerateCorePositions",
+        "ports" : [
+          {
+            "objectType" : "Port",
+            "nodePortType" : "In",
+            "name" : "positions",
+            "execPortType" : "Out"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "baseMesh",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "axisVector",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "firstPoint",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "secondPoint",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "pointsNumber",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "oneSegmentLength",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "switchDirectionArray",
+            "execPortType" : "In"
+            },
+          {
+            "objectType" : "Port",
+            "nodePortType" : "Out",
+            "name" : "switchDirectionNeighborhood",
+            "execPortType" : "In"
+            }
+          ],
+        "extDeps" : {},
+        "nodes" : [
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":361.0,\"y\":141.0}"
+              },
+            "name" : "Subtract",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value01"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "value02"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "result"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "Subtract",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "value01",
+                  "execPortType" : "In",
+                  "typeSpec" : "$TYPE$"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "value02",
+                  "execPortType" : "In",
+                  "typeSpec" : "$TYPE$"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "result",
+                  "execPortType" : "Out",
+                  "typeSpec" : "$TYPE$"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "dfgEntry {
+  result = value01 - value02;
+}
+"
+              }
+            },
+          {
+            "objectType" : "Inst",
+            "metadata" : {
+              "uiGraphPos" : "{\"x\":760.9526977539063,\"y\":312.610107421875}"
+              },
+            "name" : "GeneratePosition",
+            "ports" : [
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "upVector"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startDirection"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "startPoint"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "pointsNumber"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "mesh"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "Out",
+                "name" : "positions"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "oneSegmentLength"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "switchArray"
+                },
+              {
+                "objectType" : "InstPort",
+                "nodePortType" : "In",
+                "name" : "transferWidth"
+                }
+              ],
+            "definition" : {
+              "objectType" : "Func",
+              "title" : "GeneratePosition",
+              "ports" : [
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "upVector",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "startDirection",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "startPoint",
+                  "execPortType" : "In",
+                  "typeSpec" : "Vec3"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "pointsNumber",
+                  "execPortType" : "In",
+                  "typeSpec" : "Integer"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "mesh",
+                  "execPortType" : "In",
+                  "typeSpec" : "PolygonMesh"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "In",
+                  "name" : "positions",
+                  "execPortType" : "Out",
+                  "typeSpec" : "Vec3[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "oneSegmentLength",
+                  "execPortType" : "In",
+                  "typeSpec" : "Scalar"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "switchArray",
+                  "execPortType" : "In",
+                  "typeSpec" : "Integer[]"
+                  },
+                {
+                  "objectType" : "Port",
+                  "nodePortType" : "Out",
+                  "name" : "transferWidth",
+                  "execPortType" : "In",
+                  "typeSpec" : "Integer"
+                  }
+                ],
+              "extDeps" : {},
+              "code" : "function Vec3[] GetPositionAndNormal(in Vec3 pos, in PolygonMesh mesh)
+{
+  Vec3 toReturn[];
+  toReturn.resize(2);
+  GeometryLocation location = mesh.getClosest(pos, Vec3(1, 1, 1), SCALAR_INFINITE);
+  toReturn[0] = mesh.getPositionAtLocation(location);
+  toReturn[1] = mesh.getNormalAtLocation(location);
+  return toReturn;
+}
+
+function Scalar GetCoefficient(Integer[] switchArray, Size index, Scalar transferWidth)
+{
+  if(switchArray.size() == 0)
+  {
+    return 1.0;
+  }
+  if(index <= switchArray[0])
+  {
+    if(index < switchArray[0] - transferWidth / 2.0)
+    {
+      return 1.0;
+    }
+    else
+    {
+      return (-2.0 / transferWidth) * index + 2*switchArray[0] / transferWidth;
+    }
+  }
+  Scalar sign = 1.0;
+  for(Size i = 0; i < switchArray.size(); i++)
+  {
+    sign = -1.0 * sign;
+    Integer u = switchArray[i];
+    Integer v = 0;
+    if(i < switchArray.size() - 1)
+    {
+      v = switchArray[i + 1];
+    }
+    else
+    {
+      v = index + 10 * transferWidth;
+    }
+
+    if(u <= index && v > index)
+    {
+      if(index < u + transferWidth / 2)
+      {
+        return sign * ((2 / transferWidth) * index - 2*u / transferWidth);
+      }
+      else if(index > v - transferWidth / 2)
+      {
+        return -1 * sign * ((2 / transferWidth) * index - 2*v / transferWidth);
+      }
+      else
+      {
+        return sign;
+      }
+    }
+
+  }
+
+  return sign;
+}
+
+dfgEntry 
+{
+  if(pointsNumber == 0)
+  {
+    positions.resize(0);
+  }
+  else
+  {
+    positions.resize(pointsNumber);
+    Vec3 sPosition = startPoint;
+    Scalar constantShift = upVector.dot(startDirection);
+    for(Size i = 0; i < pointsNumber; i++)
+    {
+      Vec3 posAndNormal[] = GetPositionAndNormal(sPosition, mesh);
+      Vec3 newPosition = posAndNormal[0];
+      positions[i] = newPosition;
+      Vec3 d = upVector.cross(posAndNormal[1]);
+      d.normalize();
+      sPosition = newPosition + (GetCoefficient(switchArray, i, transferWidth) * upVector * constantShift - d) * oneSegmentLength;
+    }
+
+  }
+
+}
+"
+              }
+            }
+          ],
+        "connections" : {
+          "baseMesh" : [
+            "GeneratePosition.mesh"
+            ],
+          "axisVector" : [
+            "GeneratePosition.upVector"
+            ],
+          "firstPoint" : [
+            "Subtract.value02",
+            "GeneratePosition.startPoint"
+            ],
+          "secondPoint" : [
+            "Subtract.value01"
+            ],
+          "pointsNumber" : [
+            "GeneratePosition.pointsNumber"
+            ],
+          "oneSegmentLength" : [
+            "GeneratePosition.oneSegmentLength"
+            ],
+          "switchDirectionArray" : [
+            "GeneratePosition.switchArray"
+            ],
+          "switchDirectionNeighborhood" : [
+            "GeneratePosition.transferWidth"
+            ],
+          "Subtract.result" : [
+            "GeneratePosition.startDirection"
+            ],
+          "GeneratePosition.positions" : [
+            "positions"
+            ]
+          }
+        }
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-226.9307861328125,\"y\":-101.9240112304688}"
+        },
+      "name" : "Xfo_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Exts.Math.Constants.Xfo",
+      "presetGUID" : "A574B316321209337ABEAC56EF1FA6B9"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":-44.9307861328125,\"y\":-65.92401123046875}"
+        },
+      "name" : "Cache_14",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "value"
+          }
+        ],
+      "executable" : "Fabric.Core.Data.Cache",
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+      },
+    {
+      "objectType" : "Inst",
+      "metadata" : {
+        "uiGraphPos" : "{\"x\":116.0692138671875,\"y\":-143.9240112304688}"
+        },
+      "name" : "Transform_1",
+      "ports" : [
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "mesh"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "In",
+          "name" : "xfo"
+          },
+        {
+          "objectType" : "InstPort",
+          "nodePortType" : "Out",
+          "name" : "result"
+          }
+        ],
+      "executable" : "Fabric.Compounds.PolygonMesh.Modify.Transform",
+      "presetGUID" : "4293D289E438FE24AF2B0BA7FF7CDCEA"
+      }
+    ],
+  "connections" : {
+    "baseMesh" : [
+      "Transform_1.mesh"
+      ],
+    "baseMeshXfo" : [
+      "Xfo_1.value"
+      ],
+    "axisVector" : [
+      "Cache_4.value"
+      ],
+    "firstPoint" : [
+      "Cache_2.value"
+      ],
+    "secondPoint" : [
+      "Cache_3.value"
+      ],
+    "segmentsCount" : [
+      "Integer_1.value"
+      ],
+    "segmentLength" : [
+      "Scalar_1.value"
+      ],
+    "turbulizeAmount" : [
+      "Turbulize.turbulizeAmount"
+      ],
+    "turbulizeFrequency" : [
+      "Turbulize.turbulizeFrequency"
+      ],
+    "width" : [
+      "Scalar_5.value"
+      ],
+    "widthSegments" : [
+      "Integer_2.value"
+      ],
+    "thickness" : [
+      "Scalar_6.value"
+      ],
+    "switchDirectionString" : [
+      "String_1.value"
+      ],
+    "switchDirectionNeighborhood" : [
+      "Integer_3.value"
+      ],
+    "isDeintersect" : [
+      "CreateStripAlongVertices.isDeintersect"
+      ],
+    "edgeAlignWeight" : [
+      "CreateStripAlongVertices.edgeAlignWeight"
+      ],
+    "isApplyShell" : [
+      "Boolean_1.value"
+      ],
+    "shellVisualCoefficient" : [
+      "Scalar_7.value"
+      ],
+    "Integer_1.value" : [
+      "MinClamp_6.value"
+      ],
+    "Scalar_1.value" : [
+      "MinClamp_5.value"
+      ],
+    "Cache_1.value" : [
+      "CreateStripAlongVertices.baseMesh",
+      "GenerateCorePositions.baseMesh"
+      ],
+    "Cache_2.value" : [
+      "GenerateCorePositions.firstPoint"
+      ],
+    "Cache_3.value" : [
+      "GenerateCorePositions.secondPoint"
+      ],
+    "Cache_4.value" : [
+      "Turbulize.axis",
+      "GenerateCorePositions.axisVector"
+      ],
+    "Cache_5.value" : [
+      "GenerateCorePositions.pointsNumber"
+      ],
+    "Cache_6.value" : [
+      "GenerateCorePositions.oneSegmentLength"
+      ],
+    "PrepareMesh.preparedMesh" : [
+      "Cache_1.value"
+      ],
+    "Scalar_5.value" : [
+      "MinClamp_3.value"
+      ],
+    "Integer_2.value" : [
+      "MinClamp_2.value"
+      ],
+    "Cache_7.value" : [
+      "CreateStripAlongVertices.width"
+      ],
+    "Cache_8.value" : [
+      "CreateStripAlongVertices.widthSegments"
+      ],
+    "Scalar_6.value" : [
+      "MinClamp.value"
+      ],
+    "Cache_9.value" : [
+      "CreateStripAlongVertices.thickness"
+      ],
+    "String_1.value" : [
+      "ParseString.str"
+      ],
+    "ParseString.array" : [
+      "Cache_10.value"
+      ],
+    "Cache_10.value" : [
+      "GenerateCorePositions.switchDirectionArray"
+      ],
+    "Integer_3.value" : [
+      "MinClamp_4.value"
+      ],
+    "Cache_11.value" : [
+      "GenerateCorePositions.switchDirectionNeighborhood"
+      ],
+    "Scalar_7.value" : [
+      "Cache_12.value"
+      ],
+    "Cache_12.value" : [
+      "CreateStripAlongVertices.shellVisualCoefficient"
+      ],
+    "MinClamp.result" : [
+      "Cache_9.value"
+      ],
+    "MinClamp_2.result" : [
+      "Cache_8.value"
+      ],
+    "MinClamp_3.result" : [
+      "Cache_7.value"
+      ],
+    "MinClamp_4.result" : [
+      "Cache_11.value"
+      ],
+    "MinClamp_5.result" : [
+      "Cache_6.value"
+      ],
+    "MinClamp_6.result" : [
+      "Cache_5.value"
+      ],
+    "Boolean_1.value" : [
+      "Cache_13.value"
+      ],
+    "Cache_13.value" : [
+      "CreateStripAlongVertices.isApplyShell"
+      ],
+    "CreateStripAlongVertices.windingMesh" : [
+      "windingMesh"
+      ],
+    "Turbulize.alignedPositions" : [
+      "CreateStripAlongVertices.corePositions"
+      ],
+    "GenerateCorePositions.positions" : [
+      "Turbulize.originalPositions"
+      ],
+    "Xfo_1.value" : [
+      "Cache_14.value"
+      ],
+    "Cache_14.value" : [
+      "Transform_1.xfo"
+      ],
+    "Transform_1.result" : [
+      "PrepareMesh.inMesh"
+      ]
+    },
+  "requiredPresets" : {
+    "Fabric.Core.Constants.Integer" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiAlwaysShowDaisyChainPorts" : "true"
+        },
+      "title" : "Integer",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Integer"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "70A8710A81C6715B65874101A33CC86E",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Core.Constants.Scalar" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiAlwaysShowDaisyChainPorts" : "true"
+        },
+      "title" : "Scalar",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "E0E96C6E234F70063BC98887B83327DC",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Core.Data.Cache" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "Cache",
+      "cacheRule" : "always",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "D903AFD981FE9214C69943F542D5FD60",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Core.Constants.String" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiAlwaysShowDaisyChainPorts" : "true"
+        },
+      "title" : "String",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "05B3595200AC2F01BD967056AC5A1268",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Core.Constants.Boolean" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiAlwaysShowDaisyChainPorts" : "true"
+        },
+      "title" : "Boolean",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "AC57A4CE7AD2AF05FAECFA35F4E8C2F6",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Exts.Geometry.PolygonMesh.AddShell" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Geometry/PolygonMesh.html",
+        "uiTooltip" : "Adds a shell to the object (`solidify`), by copying the surface and connecting all border polygons.\nThe current surface will be pushed by 1/2 `thickness` along the point normals, and the copied surface (interior)\nwill be pushed by the same amount in the opposite direction.\n\n\n Supported by PolygonMesh"
+        },
+      "title" : "AddShell",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "PolygonMesh"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "thickness",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "Geometry" : "*"
+        },
+      "presetGUID" : "279618E702FDE6FD539AB8ABDAEE9A25",
+      "code" : "require Geometry;
+
+dfgEntry {
+  this.addShell(thickness);
+}
+"
+      },
+    "Fabric.Compounds.PolygonMesh.Modify.RecomputeNormals" : {
+      "objectType" : "Graph",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 120,\n  \"g\" : 130,\n  \"b\" : 144\n  }",
+        "uiHeaderColor" : "{\n  \"r\" : 88,\n  \"g\" : 92,\n  \"b\" : 110\n  }",
+        "uiTooltip" : "Recomputes the vertex normals."
+        },
+      "title" : "RecomputeNormals",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "mesh",
+          "execPortType" : "In",
+          "typeSpec" : "PolygonMesh"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiRange" : "(0, 180)"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Float32" : 60
+            },
+          "name" : "hardAngleDegrees",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "PolygonMesh"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "E469FC93B78CAC1D85111F400E87968E",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 531, \"y\": 146}"
+            },
+          "name" : "RecomputePointNormals",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "this"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "hardAngleRadians"
+              }
+            ],
+          "executable" : "Fabric.Exts.Geometry.PolygonMesh.RecomputePointNormals",
+          "presetGUID" : "82B0904C5BAB58BDA9ED038FB18E0629"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 779, \"y\": 175}"
+            },
+          "name" : "Cache",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "value"
+              }
+            ],
+          "executable" : "Fabric.Core.Data.Cache",
+          "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 302, \"y\": 108}"
+            },
+          "name" : "ClonePolygonMesh",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "value"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "executable" : "Fabric.Exts.Geometry.PolygonMesh.ClonePolygonMesh",
+          "presetGUID" : "8480EBBD95E54A412E1471D01B474BA2"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 314, \"y\": 225}"
+            },
+          "name" : "MathDegToRad",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "val"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "executable" : "Fabric.Exts.Math.Func.Math_degToRad",
+          "presetGUID" : "6BC97C4D61BFC82DBF0660BAD1104520"
+          }
+        ],
+      "connections" : {
+        "mesh" : [
+          "ClonePolygonMesh.value"
+          ],
+        "hardAngleDegrees" : [
+          "MathDegToRad.val"
+          ],
+        "RecomputePointNormals.this" : [
+          "Cache.value"
+          ],
+        "Cache.value" : [
+          "result"
+          ],
+        "ClonePolygonMesh.result" : [
+          "RecomputePointNormals.this"
+          ],
+        "MathDegToRad.result" : [
+          "RecomputePointNormals.hardAngleRadians"
+          ]
+        }
+      },
+    "Fabric.Exts.Geometry.PolygonMesh.RecomputePointNormals" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Geometry/PolygonMesh.html",
+        "uiTooltip" : "Recomputes all point normals and introduces normal splits if adjacent polygons' normals differ by more than `hardAngleRadians` radians.\nAll previously stored point normals will be overwritten.\nThe computed normal value is the average of neighbor polygons' :kl-ref:`PolygonMesh.generatePolygonNormal` (or a subset of these if there is a split).\n\n Supported by PolygonMesh"
+        },
+      "title" : "RecomputePointNormals",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "IO",
+          "name" : "this",
+          "execPortType" : "IO",
+          "typeSpec" : "PolygonMesh"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "hardAngleRadians",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "Geometry" : "*"
+        },
+      "presetGUID" : "82B0904C5BAB58BDA9ED038FB18E0629",
+      "code" : "require Geometry;
+
+dfgEntry {
+  this.recomputePointNormals(hardAngleRadians);
+}
+"
+      },
+    "Fabric.Exts.Geometry.PolygonMesh.ClonePolygonMesh" : {
+      "objectType" : "Graph",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "ClonePolygonMesh",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "PolygonMesh"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "8480EBBD95E54A412E1471D01B474BA2",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 329, \"y\": 165}"
+            },
+          "name" : "PolygonMesh",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "debugName"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "float64Positions"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "executable" : "Fabric.Exts.Geometry.PolygonMesh.PolygonMesh",
+          "presetGUID" : "18F3A38BE7497D6BFC18A148A520B66D"
+          },
+        {
+          "objectType" : "Var",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 476, \"y\": 176}"
+            },
+          "name" : "mesh",
+          "ports" : [
+            {
+              "objectType" : "VarPort",
+              "nodePortType" : "IO",
+              "name" : "value"
+              }
+            ],
+          "dataType" : "PolygonMesh",
+          "extDep" : "Geometry:*"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 674, \"y\": 115}"
+            },
+          "name" : "CloneMembersTo",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "value"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "clonedValue"
+              }
+            ],
+          "executable" : "Fabric.Core.Data.CloneMembersTo",
+          "presetGUID" : "5FCEF4F5EFB2D8F917E415A22FFCDF2C"
+          }
+        ],
+      "connections" : {
+        "value" : [
+          "CloneMembersTo.value"
+          ],
+        "PolygonMesh.result" : [
+          "mesh.value"
+          ],
+        "mesh.value" : [
+          "CloneMembersTo.clonedValue"
+          ],
+        "CloneMembersTo.clonedValue" : [
+          "result"
+          ]
+        }
+      },
+    "Fabric.Exts.Geometry.PolygonMesh.PolygonMesh" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Geometry/PolygonMesh.html",
+        "uiTooltip" : "Constructor.\n\n Supported by PolygonMesh"
+        },
+      "title" : "PolygonMesh",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "debugName",
+          "execPortType" : "In",
+          "typeSpec" : "String"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "float64Positions",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 51,\n  \"g\" : 1,\n  \"b\" : 106\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "PolygonMesh"
+          }
+        ],
+      "extDeps" : {
+        "Geometry" : "*"
+        },
+      "presetGUID" : "18F3A38BE7497D6BFC18A148A520B66D",
+      "code" : "require Geometry;
+
+dfgEntry {
+  result = PolygonMesh(debugName, float64Positions);
+}
+"
+      },
+    "Fabric.Core.Data.CloneMembersTo" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 214,\n  \"g\" : 191,\n  \"b\" : 103\n  }",
+        "uiHeaderColor" : "{\n  \"r\" : 188,\n  \"g\" : 129,\n  \"b\" : 83\n  }"
+        },
+      "title" : "CloneMembersTo",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "IO",
+          "name" : "clonedValue",
+          "execPortType" : "IO",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "5FCEF4F5EFB2D8F917E415A22FFCDF2C",
+      "code" : "dfgEntry {
+  value.cloneMembersTo(clonedValue);
+}
+"
+      },
+    "Fabric.Exts.Math.Func.Math_degToRad" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiTooltip" : "Converts degrees to radians\n\n Supported by Scalar"
+        },
+      "title" : "Math_degToRad",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "val",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Scalar"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "6BC97C4D61BFC82DBF0660BAD1104520",
+      "code" : "require Math;
+
+dfgEntry {
+  result = Math_degToRad(val);
+}
+"
+      },
+    "Fabric.Core.Control.If" : {
+      "objectType" : "Func",
+      "title" : "If",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "cond",
+          "execPortType" : "In",
+          "typeSpec" : "Boolean"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "if_true",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "if_false",
+          "execPortType" : "In",
+          "typeSpec" : "$TYPE$"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "$TYPE$"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "3182A478A21643455D549E483D35F831",
+      "code" : "
+dfgEntry {
+	result = cond ? if_true : if_false;
+}
+"
+      },
+    "Fabric.Compounds.Deform.TurbulizeVec3" : {
+      "objectType" : "Graph",
+      "metadata" : {
+        "uiTooltip" : "turbulizes an array of 3D positions.",
+        "uiGraphPan" : "{\"x\": 719, \"y\": -36}"
+        },
+      "title" : "TurbulizeVec3",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "positions",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3[]"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiRange" : "(0, 100)"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Float32" : 0
+            },
+          "name" : "time",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "center",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Vec3" : {
+              "x" : 0.5,
+              "y" : 0.5,
+              "z" : 0.5
+              }
+            },
+          "name" : "amplitude",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Vec3" : {
+              "x" : 0.1000000014901161,
+              "y" : 0.1000000014901161,
+              "z" : 0.1000000014901161
+              }
+            },
+          "name" : "timeFrequency",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Vec3" : {
+              "x" : 1,
+              "y" : 1,
+              "z" : 1
+              }
+            },
+          "name" : "spaceFrequency",
+          "execPortType" : "In",
+          "typeSpec" : "Vec3"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3[]"
+          }
+        ],
+      "extDeps" : {},
+      "presetGUID" : "53BF8DEA73A377D1A3223FEB08D62D1B",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": -264.899, \"y\": 174.448}"
+            },
+          "name" : "applyTurbulizeVec3",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "positions"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Float32" : 0
+                },
+              "name" : "time"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Vec3" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+                  }
+                },
+              "name" : "center"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Vec3" : {
+                  "x" : 0.2000000029802322,
+                  "y" : 0.2000000029802322,
+                  "z" : 0.2000000029802322
+                  }
+                },
+              "name" : "amplitude"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Vec3" : {
+                  "x" : 0.1000000014901161,
+                  "y" : 0.1000000014901161,
+                  "z" : 0.1000000014901161
+                  }
+                },
+              "name" : "timeFrequency"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "defaultValues" : {
+                "Vec3" : {
+                  "x" : 1,
+                  "y" : 1,
+                  "z" : 1
+                  }
+                },
+              "name" : "spaceFrequency"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "definition" : {
+            "objectType" : "Func",
+            "title" : "applyTurbulizeVec3",
+            "ports" : [
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "positions",
+                "execPortType" : "In",
+                "typeSpec" : "Vec3[]"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "time",
+                "execPortType" : "In",
+                "typeSpec" : "Scalar"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "center",
+                "execPortType" : "In",
+                "typeSpec" : "Vec3"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "amplitude",
+                "execPortType" : "In",
+                "typeSpec" : "Vec3"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "timeFrequency",
+                "execPortType" : "In",
+                "typeSpec" : "Vec3"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "spaceFrequency",
+                "execPortType" : "In",
+                "typeSpec" : "Vec3"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "In",
+                "name" : "result",
+                "execPortType" : "Out",
+                "typeSpec" : "Vec3[]"
+                }
+              ],
+            "extDeps" : {},
+            "code" : "
+operator applyTurbulizeVec3_task<<<index>>>(Vec3 pos[], Vec3 c, Vec3 a, Vec3 sf, io Vec3 res[])
+{
+  Vec3 v = c + sf * pos[index];
+  
+  res[index].x = pos[index].x + a.x * perlinNoise(v.x, v.z, v.y);
+  res[index].y = pos[index].y + a.y * perlinNoise(v.y, v.x, v.z);
+  res[index].z = pos[index].z + a.z * perlinNoise(v.z, v.y, v.x);
+}
+
+dfgEntry
+{
+  result.resize(positions.size());
+  
+  Vec3 c = center + time * timeFrequency;
+  
+  applyTurbulizeVec3_task<<<result.size()>>>(positions, c, amplitude, spaceFrequency, result);
+}
+"
+            }
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": -3, \"y\": 307}"
+            },
+          "name" : "Cache",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "value"
+              }
+            ],
+          "executable" : "Fabric.Core.Data.Cache",
+          "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+          }
+        ],
+      "connections" : {
+        "positions" : [
+          "applyTurbulizeVec3.positions"
+          ],
+        "time" : [
+          "applyTurbulizeVec3.time"
+          ],
+        "center" : [
+          "applyTurbulizeVec3.center"
+          ],
+        "amplitude" : [
+          "applyTurbulizeVec3.amplitude"
+          ],
+        "timeFrequency" : [
+          "applyTurbulizeVec3.timeFrequency"
+          ],
+        "spaceFrequency" : [
+          "applyTurbulizeVec3.spaceFrequency"
+          ],
+        "applyTurbulizeVec3.result" : [
+          "Cache.value"
+          ],
+        "Cache.value" : [
+          "result"
+          ]
+        }
+      },
+    "Fabric.Exts.Math.Vec3.Vec3" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Vec3.html",
+        "uiTooltip" : "Constructor from scalar components\n\n Supported by Vec3"
+        },
+      "title" : "Vec3",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "x",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "y",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "z",
+          "execPortType" : "In",
+          "typeSpec" : "Scalar"
+          },
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 255,\n  \"g\" : 242,\n  \"b\" : 0\n  }"
+            },
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "Vec3"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "A59E49949F21CFCB14B5711D52330BA7",
+      "code" : "require Math;
+
+dfgEntry {
+  result = Vec3(x, y, z);
+}
+"
+      },
+    "Fabric.Exts.Math.Constants.Xfo" : {
+      "objectType" : "Func",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 99,\n  \"g\" : 129,\n  \"b\" : 92\n  }",
+        "uiAlwaysShowDaisyChainPorts" : "true",
+        "uiDocUrl" : "http://docs.fabric-engine.com/FabricEngine/2.1.0/HTML/KLExtensionsGuide/Math/Xfo.html"
+        },
+      "title" : "Xfo",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "metadata" : {
+            "uiColor" : "{\n  \"r\" : 249,\n  \"g\" : 157,\n  \"b\" : 28\n  }"
+            },
+          "nodePortType" : "Out",
+          "defaultValues" : {
+            "Xfo" : {
+              "ori" : {
+                "v" : {
+                  "x" : 0,
+                  "y" : 0,
+                  "z" : 0
+                  },
+                "w" : 1
+                },
+              "tr" : {
+                "x" : 0,
+                "y" : 0,
+                "z" : 0
+                },
+              "sc" : {
+                "x" : 1,
+                "y" : 1,
+                "z" : 1
+                }
+              }
+            },
+          "name" : "value",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          }
+        ],
+      "extDeps" : {
+        "Math" : "*"
+        },
+      "presetGUID" : "A574B316321209337ABEAC56EF1FA6B9",
+      "code" : "dfgEntry {
+}
+"
+      },
+    "Fabric.Compounds.PolygonMesh.Modify.Transform" : {
+      "objectType" : "Graph",
+      "metadata" : {
+        "uiNodeColor" : "{\n  \"r\" : 120,\n  \"g\" : 130,\n  \"b\" : 144\n  }",
+        "uiHeaderColor" : "{\n  \"r\" : 88,\n  \"g\" : 92,\n  \"b\" : 110\n  }",
+        "uiTooltip" : "transforms (= translates/rotates/scales) a polygon mesh."
+        },
+      "title" : "Transform",
+      "ports" : [
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "mesh",
+          "execPortType" : "In",
+          "typeSpec" : "PolygonMesh"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "Out",
+          "name" : "xfo",
+          "execPortType" : "In",
+          "typeSpec" : "Xfo"
+          },
+        {
+          "objectType" : "Port",
+          "nodePortType" : "In",
+          "name" : "result",
+          "execPortType" : "Out",
+          "typeSpec" : "PolygonMesh"
+          }
+        ],
+      "extDeps" : {
+        "Geometry" : "*"
+        },
+      "presetGUID" : "4293D289E438FE24AF2B0BA7FF7CDCEA",
+      "nodes" : [
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 725, \"y\": 131}"
+            },
+          "name" : "Cache",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "value"
+              }
+            ],
+          "executable" : "Fabric.Core.Data.Cache",
+          "presetGUID" : "D903AFD981FE9214C69943F542D5FD60"
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 452.5, \"y\": 130.5}"
+            },
+          "name" : "applyTransform",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "IO",
+              "name" : "mesh"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "xfo"
+              }
+            ],
+          "definition" : {
+            "objectType" : "Func",
+            "title" : "applyTransform",
+            "ports" : [
+              {
+                "objectType" : "Port",
+                "nodePortType" : "IO",
+                "name" : "mesh",
+                "execPortType" : "IO",
+                "typeSpec" : "PolygonMesh"
+                },
+              {
+                "objectType" : "Port",
+                "nodePortType" : "Out",
+                "name" : "xfo",
+                "execPortType" : "In",
+                "typeSpec" : "Xfo"
+                }
+              ],
+            "extDeps" : {},
+            "code" : "require Geometry;
+
+operator PolygonMeshModifyTransformPositions_task<<<index>>>(io PolygonMesh mesh, Xfo xfo)
+{
+  mesh.setPointPosition(index, xfo.transformVector(mesh.getPointPosition(index)));
+}
+
+operator PolygonMeshModifyTransformNormals_task<<<index>>>(io Float32 flatNormals[], Xfo xfo, Boolean repairLengths)
+{
+  UInt32 i = index * 3;
+
+  // transform.
+  Vec3 n(flatNormals[i + 0],
+         flatNormals[i + 1],
+         flatNormals[i + 2]);
+  n = xfo.transformVector(n);
+    
+  // repair lengths.
+  if (repairLengths)
+  {
+    Float32 len = n.lengthSquared();
+    if (len > 1.0e-17)
+    {
+      n /= sqrt(len);
+    }
+    else
+    {
+      n.x = 0;
+      n.y = 1;
+      n.z = 0;
+    }
+  }
+  
+  // put back.
+  flatNormals[i + 0] = n.x;
+  flatNormals[i + 1] = n.y;
+  flatNormals[i + 2] = n.z;
+}
+
+dfgEntry
+{
+  // positions.
+  if (xfo != Xfo())
+  {
+    // transform and increment version.
+    PolygonMeshModifyTransformPositions_task<<<mesh.pointCount()>>>(mesh, xfo);
+    mesh.incrementPointPositionsVersion();
+  }
+  
+  // normals.
+  Xfo xfn = Xfo(xfo.ori, Vec3(0, 0, 0), xfo.sc);
+  if (xfn != Xfo())
+  {
+    // get polygon node normals as a flat array.
+    Float32 flatNormals[];
+    flatNormals.resize(3 * mesh.polygonPointsCount());
+    Float32 extFlatNormals<>(flatNormals); 
+    mesh.getNormalsAsExternalArray(extFlatNormals);
+    
+    // transform.
+    Boolean repairNormals = (xfn.sc != Vec3(1.0, 1.0, 1.0));
+    PolygonMeshModifyTransformNormals_task<<<mesh.polygonPointsCount()>>>(flatNormals, xfn, repairNormals);
+    
+    // set normals from flat array.
+    mesh.setNormalsFromExternalArray(flatNormals);
+    
+    // increment version.
+    mesh.incrementNormalsVersion();
+  }
+}
+
+"
+            }
+          },
+        {
+          "objectType" : "Inst",
+          "metadata" : {
+            "uiGraphPos" : "{\"x\": 251, \"y\": 39}"
+            },
+          "name" : "ClonePolygonMesh",
+          "ports" : [
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "In",
+              "name" : "value"
+              },
+            {
+              "objectType" : "InstPort",
+              "nodePortType" : "Out",
+              "name" : "result"
+              }
+            ],
+          "executable" : "Fabric.Exts.Geometry.PolygonMesh.ClonePolygonMesh",
+          "presetGUID" : "8480EBBD95E54A412E1471D01B474BA2"
+          }
+        ],
+      "connections" : {
+        "mesh" : [
+          "ClonePolygonMesh.value"
+          ],
+        "xfo" : [
+          "applyTransform.xfo"
+          ],
+        "Cache.value" : [
+          "result"
+          ],
+        "applyTransform.mesh" : [
+          "Cache.value"
+          ],
+        "ClonePolygonMesh.result" : [
+          "applyTransform.mesh"
+          ]
+        }
+      }
+    },
+  "args" : [
+    {
+      "type" : "PolygonMesh",
+      "value" : null,
+      "ext" : "Geometry"
+      },
+    {
+      "type" : "PolygonMesh",
+      "value" : null,
+      "ext" : "Geometry"
+      },
+    {
+      "type" : "Xfo",
+      "value" : {
+        "ori" : {
+          "v" : {
+            "x" : 0,
+            "y" : 0,
+            "z" : 0
+            },
+          "w" : 1
+          },
+        "tr" : {
+          "x" : 0,
+          "y" : 0,
+          "z" : 0
+          },
+        "sc" : {
+          "x" : 1,
+          "y" : 1,
+          "z" : 1
+          }
+        },
+      "ext" : "Math"
+      },
+    {
+      "type" : "Vec3",
+      "value" : {
+        "x" : 0,
+        "y" : 0,
+        "z" : 0
+        },
+      "ext" : "Math"
+      },
+    {
+      "type" : "Vec3",
+      "value" : {
+        "x" : 0,
+        "y" : 0,
+        "z" : 0
+        },
+      "ext" : "Math"
+      },
+    {
+      "type" : "Vec3",
+      "value" : {
+        "x" : 0,
+        "y" : 0,
+        "z" : 0
+        },
+      "ext" : "Math"
+      },
+    {
+      "type" : "Integer",
+      "value" : 7
+      },
+    {
+      "type" : "Scalar",
+      "value" : 0.5
+      },
+    {
+      "type" : "Scalar",
+      "value" : 0
+      },
+    {
+      "type" : "Scalar",
+      "value" : 0.699999988079071
+      },
+    {
+      "type" : "Scalar",
+      "value" : 1
+      },
+    {
+      "type" : "Integer",
+      "value" : 2
+      },
+    {
+      "type" : "Scalar",
+      "value" : 0.1000000014901161
+      },
+    {
+      "type" : "String",
+      "value" : "60"
+      },
+    {
+      "type" : "Integer",
+      "value" : 20
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "Scalar",
+      "value" : 1
+      },
+    {
+      "type" : "Boolean",
+      "value" : false
+      },
+    {
+      "type" : "Scalar",
+      "value" : 1
+      }
+    ]
+  }

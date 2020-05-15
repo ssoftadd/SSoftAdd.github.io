@@ -1,0 +1,65 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<img src="images/syclesLabel_1_9_1.png" class="center"/>
+			<p class="lastUpdate">Last update: 14.05.2020</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>This is the <a class="generalLink" href="https://docs.blender.org/manual/en/dev/render/cycles/">Cycles</a> render integration into Softimage.</p>
+			<p><b>Features:</b></p>
+			<ol>
+				<li> Builded with Cycles ver. 1.12 (commited at 12.05.2020)
+				<li> CPU and GPU rendering support
+				<li> Allows to render ICE-attributes of polygon meshes with context per-point or per-object
+				<li> Renders ICE-instances and instance models
+				<li> Renders ICE-strands as hairs
+				<li> Renders standrad XSI hairs
+				<li> Renders all Cycles passes (Combined, Depth, Mist, Normal etc.) and custom AOV (Color and Float)
+				<li> Renders any volume objects (in particular OpenVDB, emFluid and Explosia FX)
+				<li> Saves output rendered images as multi-layer EXR
+				<li> Saves cryptomatte passes
+				<li> Custom light primitives
+				<li> Geometry caching system
+				<li> OpenColorIO color profilies support with pre-builded Filmic config from Blender 2.8
+				<li> Shaderballs previews
+				<li> OSL-shaders support
+				<li> UDIM textures support
+				<li> "How to..." manual with pictures
+				<li> <a class="generalLink" href="hdrMasterPage.html">HDR Master</a> addon for manipulating by hdr-environments
+				<li> <a class="generalLink" href="shadersPage.html">Shader packs</a>
+				<li> <a class="generalLink" href="stoonPage.html">SToon</a> addon for cartoon rendering
+			</ol>
+						
+			<p><b>Download: </b><a class="generalLink" href="download/Sycles_1.9.1.xsiaddon">version 1.9.1</a></p>
+			
+			<p><b>How to use: </b> Install as usual addon for Softimage. Switch to the Cycles Renderer and you are ready to render. Use official <a class="generalLink" href = "https://docs.blender.org/manual/en/dev/render/cycles/">Cycles manual</a> for references to render parameters, shaders and other properties.</p>
+			
+			<p><b>"How to..." manual</b> contains short tutorials with description of main functions and features
+			<ul class="leftSpacing">
+				<li> <a class="generalLink" href="manuals/sycles_howTo_22_03_2020_eng.pdf">English version</a>
+				<li> <a class="generalLink" href="manuals/sycles_howTo_22_03_2020_rus.pdf">Russian version</a>
+			</ul>
+			</p>
+
+			<p><b>Remarks: </b> 
+			<ol>
+				<li> On some machines the addon additionaly requires vc14 runtime. Download the <i>Visual C++ Redistributable for Visual Studio 2015</i> package from <a class="generalLink" href="https://www.microsoft.com/en-US/download/details.aspx?id=53840">here</a> and install it (or google by keywords "vc14 runtime"). 
+				<li> All copies of a light source shares the same shader. Make it local to tweak shader parameters independently				
+				<li> Sometimes shaderball preview does not updated during you change the shader parameters. Simply close preview window and open it again
+				<li> Does not turn on the OSL-shaders support, if it is not necessary. This increase the render time
+				<li> Does not turn on the deformation blur of objects, if it is not really necessary. It can dramatically increase the render time
+				<li> For using UDIM-textures, select as input texture only the first one with the tile 1001, all other textures will be used automatically. The render find the tile of the texture by parsing it name from right to left, so the texture with the name 1001_diffuse_1002.png will be interpreted as 1002 tile
+			</ol>
+			</p>
+        </div>
+		</div>
+	</body>
+
+</html>
