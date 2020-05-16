@@ -1,0 +1,1 @@
+If there are some problems with addons, presented on the site, please, don't write to Issues section. Instead, mail me to cgproggame@gmail.com
