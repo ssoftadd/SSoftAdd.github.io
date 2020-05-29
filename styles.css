@@ -14,6 +14,12 @@ p.banner
   padding: 0;
 }
 
+td.table01
+{
+	padding: 0 10 10 10;
+	vertical-align: top;
+}
+
 html
 {
   height: 100%;

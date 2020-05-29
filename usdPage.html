@@ -1,0 +1,119 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<img src="images/usd_label.png" class="center"/>
+			<p class="lastUpdate">Last update: 29.05.2020</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>This is the basic implementation of the <a class="generalLink" href="https://graphics.pixar.com/usd/docs/index.html">USD</a> format into Softimage.</p>
+			
+			<p><b>Download: </b><a class="generalLink" href="download/S-USD.xsiaddon">version 1.0</a>, sources on the <a class="generalLink" href="https://github.com/Tugcga/S-USD">GitHub</a></p>
+			
+			<p><b>How to install: </b>addon can be installed as usual addon for Softimage. But it requires additional libraries: <a class="generalLink" href="download/usd_python.zip">USD Python module</a> and <a class="generalLink" href="download/usd_libs.zip">USD binaries</a>. There are two ways to install Python module:</p>
+			<ol>
+				<li> Copy <i>pxr</i> folder from the archive to <i>C:\Program Files\Autodesk\Softimage 2015\Application\python\Lib\site-packages\</i> directory, or
+				<li> Extract the archive anywhere and add the path to the <i>pxr</i> folder to PYTHONPATH environment variable
+			</ol>
+			
+			<p>There is only one way to install USD binaries: extract it anywhere and add the path to the extracted folder to PATH environment variable.</p>
+			
+			<p>This is example of the variables values:</p>
+			
+			<img src="images/usd_01_install.png" class="center"/>
+			
+			<p><b>Export from Softimage</b></p>
+			
+			<table>
+			<tr>
+				<td width=50% class="table01"><img src="images/usd_02_export.png" class="center"/></td>
+				<td class="table01">
+				<p><b>File Path:</b> path to the output file. You can set the extension of the file (*.usd, *.usda, *.usdc or *.usdz), but if it does not contains it, then the extension *.usd will be used.</p>
+				
+				<p><b>Objects to Export:</b> what kind of objects should be exported. <i>Strands</i> will be exported only if <i>Pointclouds</i> are also checked ON. If <i>Selection Only</i> is checked ON, then only selected objects with all subobjects will be exported.</p>
+				
+				<p><b>Animation:</b> interval for the animation.</p>
+				
+				<p><b>Mesh Attributes:</b> what kind of mesh attributes should be exported. In most cases <i>Normals</i> does not need to be exported, except some cases, when object use user normals.</p>
+				
+				<p><b>Material:</b> export material templates or not.</p>
+				
+				<p><b>Options:</b>
+				<ul class="leftSpacing">
+					<li>If <i>Activate Subdivision</i> is checked OFF, then to each polygon mesh will be added the key <i>subdivisionScheme = "none"</i>
+					<li>If <i>Ignore Unexported Objects</i> is checked ON, then all objects and all it subobjects will be skipped if it type is not checked on the section <i>Objects to Export</i>.
+					<li>If <i>Change Frame in Animation Export</i> is checked ON, then it will update the frame in the timeline before export each objcet. This helps, for example, properly export ICE-deformations of polygon mesh objects.
+				</ul>
+				</p>
+				</td>
+			</tr>
+			</table>
+			
+			<p><b>Import to Softimage</b></p>
+			
+			<table>
+			<tr>
+				<td width=50% class="table01"><img src="images/usd_03_import.png" class="center"/></td>
+				<td class="table01">
+				<p><b>File Path:</b> input usd-file.</p>
+				
+				<p><b>Objects to Import:</b> what kind of object should be imported.</p>
+				
+				<p><b>Mesh Attributes:</b> what kind of attributes should imported for each polygon mesh.</p>
+				
+				<p><b>Lights:</b> if Sycles addon is installed, then there is possibility to import lights as Sycles-lights. In <i>Default</i> mode lights imported as build-in Softimage light sources.</p>
+				
+				<p><b>Options:</b>
+				<ul class="leftSpacing">
+					<li>If <i>Clear Scene</i> is checked ON, then all objects from the scene will be deleted before importing process.
+					<li>If <i>Assign Imported Materials</i> is checked ON, then the material from usd-file will be assigned to each object and cluster.
+				</ul>
+				</p>
+				</td>
+			</tr>
+			</table>
+			
+			<p>If imported polygon mesh objects contains animated deformations, then special operator will be added to this mesh. This operator updates each frame point positions, uv-coordinates, normals, colors and weightmaps. If the topology of the mesh is changed during the animation, then the operator updates only point positions and ignore all other attributes.</p>
+			
+			<table>
+			<tr>
+				<td width=50% class="table01"><img src="images/usd_04_05_operator.png" class="center"/></td>
+				<td class="table01">
+				<p><b>Assets Path:</b> path to usd-file and particular <i>Mesh</i> section in it.</p>
+				
+				<p><b>Options:</b> 
+				<ul class="leftSpacing">
+					<li>If <i>Active</i> is checked ON then this operator will be updates every frame.
+					<li><i>Frame Offset</i> is added to the current frame for calculating frame value from the usd file.
+				</ul>
+				</p>
+				
+				<p><b>Attributes:</b> what kind of attributes should be updated every frame. These checkboxes have the same values as in <i>Mesh Attributes</i> section on the window with import settings.</p>
+				</td>
+			</tr>
+			</table>
+			
+			<p>More technical information about exported and imported data contains on the <a class="generalLink" href="https://github.com/Tugcga/S-USD">GitHub page</a> with the addon source code.</p>
+			
+			<p><b>Examples</b></p>
+			
+			<p><a class="generalLink" href="http://graphics.pixar.com/usd/downloads.html">Kitchen set<a> - standard sample from the Pixar</p>
+			
+			<img src="images/usd_05_example_kitchen_set.png" class="center"/>
+			
+			<p><a class="generalLink" href="https://www.blender.org/download/demo-files/">Class room</a> scene from Blender. It was exported to USD from Blender and imported to Softimage</p>
+			
+			<img src="images/usd_06_example_classroom.png" class="center"/>
+			
+			
+        </div>
+		</div>
+	</body>
+
+</html>
