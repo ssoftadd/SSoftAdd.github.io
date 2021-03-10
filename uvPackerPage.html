@@ -38,7 +38,11 @@
 				<li><i>Update UV</i>: if turn ON, then selected uv property will be updated with new uv-coordinates. If turn OFF, then after packing the new Texture Property with new coordinates will be created.
 			</ul>
 			
-			<p><b>Remarks: </b>current version of the addon uses the pure Python API for getting required data from objects in the scene. This process takes the most time. The actual packing is much faster. So, may be the process of data gathering will be rewritten into C++ in the future.</p>
+			<p><b>Remarks: </b></p>
+			<ul class="left">
+			<li>Current version of the addon uses the pure Python API for getting required data from objects in the scene. This process takes the most time. The actual packing is much faster. So, may be the process of data gathering will be rewritten into C++ in the future.
+			<li>Addon executes the standalone application from the directory, where it installs. In some cases Windows way block this process. So, installing addon into the workgroup in non-system local storage may fix it.
+			</ul>
         </div>
 		</div>
 	</body>
