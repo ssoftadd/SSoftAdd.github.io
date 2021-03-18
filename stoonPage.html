@@ -36,7 +36,9 @@
 			
 			<img src="images/SToon/how_start_03.png" class="center"/>
 			
-			<p><b>Warning:</b> There is nonctitical bug. Addon contains four nodes <i>SToon Easy Toon</i>, <i>SToon Scene Shading</i>, <i>SToon Scene Light</i> and <i>SToon Scene Shadow</i> which are used to collect data about light sources in the scene. This data collection occurs every time before the frame is rendered if the scene renderer is <i>Cycles Renderer</i> (that is why we select it in the previous section. For other scene renderers this event is skipped). Sometimes, if the addon should change the data inside these nodes, the Render Tree window is blocked and can not be changed after render finish. Simply close the Render Tree window and open it again.</p>
+			<p><b>Warning:</b> There is noncrtitical bug. Addon contains four nodes <i>SToon Easy Toon</i>, <i>SToon Scene Shading</i>, <i>SToon Scene Light</i> and <i>SToon Scene Shadow</i> which are used to collect data about light sources in the scene. This data collection occurs every time before the frame is rendered if the scene renderer is <i>Cycles Renderer</i> (that is why we select it in the previous section. For other scene renderers this event is skipped). Sometimes, if the addon should change the data inside these nodes, the Render Tree window is blocked and can not be changed after render finish. Simply close the Render Tree window and open it again.</p>
+			
+			<p>If the Sycles version is greater than 1.10, then disable mesh caching in the render properties. This will allows to properly update requires data for shading.</p>
 			
 			<p><b>Render examples:</b></p>
 			
