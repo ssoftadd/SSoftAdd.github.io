@@ -8,20 +8,21 @@
 	<body>
 		<div class="content_wrapper">
         <div class="content">
-			<h1>FX Denoise v.1.1</h1>
+			<h1>FX Denoise v.1.2</h1>
 			<img src="images/fx_denoise_banner.png" class="center"/>
-			<p class="lastUpdate">Last update: 19.04.2020</p>
+			<p class="lastUpdate">Last update: 27.05.2021</p>
 			<p class="backLink"><a href="index.html">Back to the main page</a></p>
 			
 			<p><b>Description: </b>This is the FX Tree node for denoising images, which rendered by ray-traced renderer (Arnold, Cycles, LuxRender, Indigo Render and so on). This node implement <a class="generalLink" href="https://openimagedenoise.github.io/">Intel Open Image Denoise</a> library.</p>
 			
-			<p><b>Download: </b><a class="generalLink" href="download/FX_Denoise.dll">FX Denoise node</a>, sources on the <a class="generalLink" href="https://github.com/Tugcga/FX-Denoise">GitHub</a></p>
+			<p><b>Download: </b><a class="generalLink" href="https://github.com/ssoftadd/SSoftAdd.github.io/releases/download/1.0.5/FX_Denoise_1_2.zip">FX Denoise archive</a>, sources on the <a class="generalLink" href="https://github.com/Tugcga/FX-Denoise">GitHub</a></p>
 			
-			<p><b>How to install: </b>Nodes for FX Tree can't be installed by using general *.xsiaddon file. Instead you should copy downloaded *.dll file into <i>C:\Users\<b>user_name</b>\Autodesk\Softimage_2015\Application\fx\ufos\</i> folder. All nodes inside this folder will appear in <i>Plugins [U]</i> category.</p> 
-			<p>This addon requires some additional libraries, which may not be included into Softimage by default. 
+			<p><b>How to install: </b>Nodes for FX Tree can't be installed by using general *.xsiaddon file. Instead you should make the following steps:
 			<ul class="left">
-			<li>You should download <a class="generalLink" href="download/tbb.dll">tbb.dll</a> file and copy it into <i>C:\Program Files\Autodesk\Softimage 2015\Application\bin</i> folder.
-			<li>Also the addon requires vc14 runtime in your system. If you does not have it, download <i>Visual C++ Redistributable for Visual Studio 2015</i> package from <a class="generalLink" href="https://www.microsoft.com/en-US/download/details.aspx?id=53840">here</a> and install it (or google by keywords "vc14 runtime").
+			<li>Step 1. Extract archive anywhere.
+			<li>Step 2. Copy the <i>FX_Denoise.dll</i> file into <i>C:\Users\<b>user_name</b>\Autodesk\Softimage_2015\Application\fx\ufos\</i> folder. All nodes inside this folder will appear in <i>Plugins [U]</i> category.
+			<li>Step 3. Copy <i>OpenImageDenoise.dll</i> and <i>tbb12.dll</i> files into <i>C:\Program Files\Autodesk\Softimage 2015\Application\bin</i> folder.
+			<li>Optional step. Also the addon requires vc14 runtime in your system. If you does not have it, download <i>Visual C++ Redistributable for Visual Studio 2015</i> package from <a class="generalLink" href="https://www.microsoft.com/en-US/download/details.aspx?id=53840">here</a> and install it (or google by keywords "vc14 runtime").
 			</ul></p>
 			
 			<p><b>How to use: </b>Step 1: switch layout to Compositing</p>
@@ -31,20 +32,18 @@
 			<img src="images/fx_denoise_tut_02.png" class="center"/>
 			
 			<p>Step 3: select any image. Switch it <i>Type</i> to <i>RGB</i> and <i>Bit Depth</i> to <i>float</i>. Also you can add additional albedo pass and normal pass</p>
-			<img src="images/fx_denoise_tut_03_02.png" class="center"/>
-			
+			<img src="images/fx_denoise_tut_03_03.png" class="center"/>
 			
 			<p>Step 4: add denoising node by choosing <i>Ops - Plugins [U] - FX Denoise</i></p>
 			<img src="images/fx_denoise_tut_04.png" class="center"/>
 			
-			
 			<p>Step 5: connect loaded images to inputs of the denoising node. The first input is for <i>color</i> (beauty pass), second for the <i>albedo</i> (diffuse color pass) and the third for the <i>normal</i>. Denoising node contains five parameters:</p>
 			<ul class="left"><li><i>HDR</i> should be turned on if the loaded image has a hdr-format (*.exr, *.tiff and so on)
-			<li><i>sRGB</i> should be turned on if the image has a ldr-format (*.png, *.jpg and so on) and contains gamma correction
+			<li><i>sRGB</i> should be turned on if the image has a ldr-format (*.png, *.jpg and so on) and contains gamma correction. It's important to use proper values for this setting (and also for <i>HDR</i>), because otherwise denoising will produce additional artifacts
 			<li><i>Set Affinity</i> is more technical parameter, for stability purpose it should turned off
-			<li><i>Filter</i> can be <i>RT</i> (for any general image) or <i>RT Lightmap</i> (for lightmaps)
+			<li><i>Clean Secondary Maps</i> should be turned on, if albedo and normal passes does not contains noise. If these passes noised, then this parameter should be turned off, and in this case the system will denoise these passes and after that denoise the main image
 			<li><i>Weights Path</i> is a full path to the *.tza file, which contains custom data for denoising neural network. How to generate this data explains on the <a class="generalLink" href="https://github.com/OpenImageDenoise/oidn">OpenImageDenoise GitHub page</a>. This parameter is optional</ul>
-			<img src="images/fx_denoise_tut_05_02.png" class="center"/>
+			<img src="images/fx_denoise_tut_05_03.png" class="center"/>
 			
         </div>
 		</div>
