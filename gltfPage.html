@@ -9,10 +9,10 @@
 		<div class="content_wrapper">
         <div class="content">
 			<h1>Softimage GLTF</h1>
-			<p class="lastUpdate">Last update: 21.06.2022</p>
+			<p class="lastUpdate">Last update: 27.06.2022</p>
 			<p class="backLink"><a href="index.html">Back to the main page</a></p>
 			
-			<p><b>Description: </b> This addon allows to import *.gltf and *.glb files into Softimage. It based on <a class="generalLink" href="https://github.com/syoyo/tinygltf">tinygltf</a> library. The addon supports the following items from gltf/glb scenes:</p>
+			<p><b>Description: </b> This addon allows to import/export *.gltf and *.glb files into/from Softimage. It based on <a class="generalLink" href="https://github.com/syoyo/tinygltf">tinygltf</a> library. The addon supports the following items for import from gltf/glb scenes:</p>
 			<ul class="left">
 				<li> Scene hierarchy
 				<li> Cameras
@@ -20,7 +20,7 @@
 					<ul class="left">
 						<li> Vertex positions
 						<li> Polygon indices
-						<li> vertex normals
+						<li> Vertex normals
 						<li> Vertex uvs
 						<li> Vertex colors
 						<li> Envelope weights
@@ -30,24 +30,116 @@
 				<li> Skin deformers
 				<li> Materials
 			</ul> <p>The addon does not supports gltf extensions. It recognize only default gltf nodes and attributes.</p>
+			<p>For export the addon supports the following scene items:</p>
+			<ul class="left">
+				<li> Cameras
+				<li> Polygonmesh objects. Export the following mesh attributes:
+					<ul class="left">
+						<li> Vertex positions
+						<li> Polygon indices
+						<li> Vertex normals
+						<li> Vertex uvs
+						<li> Vertex colors
+						<li> Envelope weights
+						<li> Shape deforms
+					</ul>
+				<li> All other scene object exported as nulls
+				<li> Materials. Recognise only materials with special main shader node <i>pbrMetallicRoughness</i>
+				<li> Transform animations
+			</ul>
 			
-			<p><b>Download: </b><a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO/releases/download/r.1/Softimage_GLTF_r1.xsiaddon">Softimage GLTF R.1</a>. There are <a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO">sources</a> of the addon on the GitHub.</p>
+			<p><b>Download: </b><a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO/releases/download/r.2/Softimage_GLTF_r2.xsiaddon">Softimage GLTF R.2</a>. There are <a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO">sources</a> of the addon on the GitHub.</p>
 			
 			<p><b>How to use: </b> Install as usual addon for Softimage.</p>
 			
-			<p><b>Import</b></p>
+			<p><b>Import files</b></p>
 			
 			<p>Select File - Import - Import GLTF/GLB...</p>
 			
 			<img src="images/gltf_image_01.png" class="center"/>
 			
-			<p>Select input file and scene items to import</p>
+			<p>Select input file and scene items to import. If you would like to import animation from the file, then activate the <i>Animations</i> parameter and setup the frames in seconds value. In GLTF/GLB files animation is stored in seconds.</p>
 			
 			<img src="images/gltf_image_02.png" class="center"/>
 			
 			<p>Press Ok</p>
 			
 			<img src="images/gltf_image_03.png" class="center"/>
+			
+			<p><b>Materials import</b></p>
+			
+			<p>GTF/GLB format supports only one standard PBR material. This material quite simple and can contains the following textures:</p>
+			<ul class="left">
+				<li> Base color. Use all four channels RGBA
+				<li> Metallic Roughness. Use B channel for metallic and G channel for roughness
+				<li> Normal. Use three channels RGB
+				<li> Occlusion. Use only R channel. In most cases occlusion texture is the same as metallic/roughness texture
+				<li> Emission. Use three channels RGB
+			</ul>
+			
+			<p>If the GLTF/GLB file contains materials and import materials is activated, then importer create the library with the same name as imported file and add all materials to this library. All materials have the same structure. The main shader node is a special <i>pbtMetallicRoughness</i> node. It does not rendered by any render engine. If imported material reference to textures, then it copies to the folder <i>[Project]\Pictures\gltf_io\[File name]</i> and connected to the input ports of the main shader node.</p>
+			
+			<img src="images/gltf_image_04.png" class="center"/>
+			
+			<p><b>Animations import remarks</b></p>
+			
+			<p>In GLTF/GLB animation of rotation is stored in quaternions, but in Softimage rotation is animated by axis angles. In some cases the conversation may prodice wrong result. Consider the following simple animation: plane, rotating in 360 degrees.</p>
+			
+			<img src="images/gltf_image_05.gif" class="center"/>
+			
+			<p>This animation is imported in the following way</p>
+			
+			<img src="images/gltf_image_06.png" class="center"/>
+			
+			<p>Quaternion that encode the rotation from 0.0 to 180.0 degrees converted to the positive angle, but if the quaternion encode degree from 180.0 to 360.0, then it converted to negative angle. This is the natural behavior, because the same quaternion correspond to the infinite number of angles (with period 360.0). It's recommended to bake animation at every frame and use the same frame rate in the import process.</p>
+			
+			<p><b>Export the scene</b></p>
+			
+			<p>Select File - Export - Export GLTF/GLB...</p>
+			
+			<img src="images/gltf_image_07.png" class="center"/>
+			
+			<p>Set the output file name, select items to export and press OK.</p>
+			
+			<img src="images/gltf_image_08.png" class="center"/>
+			
+			<p>The export window has following parameters:</p>
+			
+			<ul class="left">
+				<li> File - full output path. It is possible to use *.gltdf or *.glb extension
+				<li> Embed Images - if activated, then all textures for materials will be saved inside output file using base64 encoder. If the parameter is deactivated, then textures will be copies to the same directory as output file
+				<li> Embed Buffer - if activated, then (as for images) binary scene data will be saved inside output file. If deactivated, then this file will be created in the same directory as output file with the same name (but extension *.bin)
+				<li> Export Mode - if the mode is <i>Selected objects</i>, then only selected objects with all sub-objects will be exported. The mode <i>Whole scene</i> is equivalent to select the scene root node
+				<li> Materials - export materials or not
+				<li> Cameras - export camera objects or not. If deactivated, then all cameras will be exported as null objects
+				<li> Hide Objects - if activated, then hidden (from the view) objects will be exported. If deactivated, then all hidden objects are excluded from exported objects with all sub-objects
+				<li> Animations - if activated, then export transform animations of objects
+				<li> Frames in Second - in Softimage animations are stored in frames, in glt-format animations are stored in seconds. This parameter allows to map frames to seconds
+				<li> Start and End - start and end frames of the animation interval for export
+				<li> Uvs - if activated, then save all uvs of all exported meshes
+				<li> Vertex Colors - if activated, then save all vertex colors of all exported meshes
+				<li> Deform Shapes - if activated, then save all deform shapes as morph targets of all exported meshes. Export only vertex position morph targets, because Softimage does not supports other attributes
+				<li> Envelope Skin - if activated, export skin weights information for all enveloped exported meshes
+			</ul>
+			
+			<p><b>Materials export</b></p>
+			
+			<p>The addon can export materials to the GLTF/GLB format, but this material should satisfy several conditions. For each material the exporter takes the first shader node, connected to the <i>Surface</i> port of the root material node. If this node is not <i>pbrMetallicRoughness</i> node, then the material is skipped. In other case the exporter write all parameters of this node and try to get textures, connected to this node. It check each input port (there are five ports for textures). If the image node is connected to the port, then the exporter save the texture of this node, in all other cases the texture is skipped.</p>
+			
+			<p><b>Animations export</b></p>
+			
+			<p>The exporter allows to export transform animations of scene objects. For each object the exporter check transform parameters. If one of them is animated, then the exporter save the value of this parameter at each frame from the selected interval in the linear interpolation mode.</p>
+			
+			<p><b>Skins export</b></p>
+			
+			<p>If a mesh has envelope deformer, then it exports as skinned object. There are two important differences with respect to other objects. At first, the transform of the skinned object is ignored. At second, all deformer (null or bone) transforms exported with values from <i>Static Kine State</i>, i.e. it export transforms at the moment when the envelope deformer is applied. So, in GLTF/GLB scene the skinned object stored in neutral pose. If you need other pose, then save actual deformer transforms as animated parameters.</p>
+			
+			<p>The recommended hierarchy for the skinned object is the following</p>
+			
+			<img src="images/gltf_image_09.png" class="center"/>
+			
+			<p><i>Armature</i> is a root null for the skined object. As sub-objects it should contains geometry mesh objects and deformers. Geometry (<i>Cesium_Man<\i> in the example) is a separate object, and it shouldn't contains as sub-objects any deformer. The hierarchy of deformers are separate from geometry. In the example it starts from the object <i>Skeleton_torso_joint_1</i>. If any deformer is sub-object of the skined geometry, then it may contains invalid pose transform.</p>
+			
 			
         </div>
 		</div>
