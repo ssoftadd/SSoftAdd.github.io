@@ -138,7 +138,46 @@
 			
 			<img src="images/gltf_image_09.png" class="center"/>
 			
-			<p><i>Armature</i> is a root null for the skined object. As sub-objects it should contains geometry mesh objects and deformers. Geometry (<i>Cesium_Man<\i> in the example) is a separate object, and it shouldn't contains as sub-objects any deformer. The hierarchy of deformers are separate from geometry. In the example it starts from the object <i>Skeleton_torso_joint_1</i>. If any deformer is sub-object of the skined geometry, then it may contains invalid pose transform.</p>
+			<p><i>Armature</i> is a root null for the skined object. As sub-objects it should contains geometry mesh objects and deformers. Geometry (<i>Cesium_Man</i> in the example) is a separate object, and it shouldn't contains as sub-objects any deformer. The hierarchy of deformers are separate from geometry. In the example it starts from the object <i>Skeleton_torso_joint_1</i>. If any deformer is sub-object of the skined geometry, then it may contains invalid pose transform.</p>
+			
+			<p><b>Import/Export API</b></p>
+			
+			<p>Addon introduce two command, which can be used in scripting.</p>
+			
+			<p>Command for import: <code>Application.GLTFImport(file path, [import_normals], [import_uvs], [import_colors], [import_shapes], [import_skin], [import_materials], [import_cameras], [import_animations], [animation_frames_per_second])</code> All arguments, except the first one, are optional</p>
+			
+			<ul class="left">
+				<li> <code>file path</code>: string. This is a full path of the file to import
+				<li> <code>[import_normals]</code>: true or false. Is import mesh normals from the file or use default ones. By default is true
+				<li> <code>[import_uvs]</code>: true or false. Is import mesh uv coordinates. By default is true
+				<li> <code>[import_colors]</code>: true or false. Is import mesh vertex colors. By default is true
+				<li> <code>[import_shapes]</code>: true or false. Is import mesh vertices shape deforms. By default is true
+				<li> <code>[import_skin]</code>: true or false. Is import skin envelope data. By default is true
+				<li> <code>[import_materials]</code>: true or false. Is import materials from the input files and assigned it to the scene objects. By default is true
+				<li> <code>[import_cameras]</code>: true or false. Is import cameras from the input file. By default is true
+				<li> <code>[import_animations]</code>: true or false. Is import transform animations. By default is false
+				<li> <code>[animation_frames_per_second]</code>: float. The number of frames in one second for animations in the input file. By default is 30.0
+			</ul>
+			
+			<p>Command for export: <code>Application.GLTFExport(objects, file_path, [embed_images], [embed_buffers], [export_uvs], [export_colors], [export_shapes], [export_skin], [export_materials], [export_cameras], [export_animations], [animation_frames_per_second], [animation_start], [animation_end], [export_hide])</code> All arguments, except the first and the second, are optional</p>
+			
+			<ul class="left">
+				<li> <code>objects</code>: array. The array of objects to export
+				<li> <code>file_path</code>: string. The full path of the output file
+				<li> <code>[embed_images]</code>: true or false. Is embed textures into output file. By default is false
+				<li> <code>[embed_buffers]</code>: true or false. Is embed data buffer intou output file. By default is false
+				<li> <code>[export_uvs]</code>: true or false. Is export math uvs. By default is true
+				<li> <code>[export_colors]</code>: true or false. Is export mesh vertex colors. By default is true
+				<li> <code>[export_shapes]</code>: true or false. Is export mesh shape deforms as point position targets. By default is true
+				<li> <code>[export_skin]</code>: true or false. Is export mesh envelope weights. By default is true
+				<li> <code>[export_materials]</code>: true or false. Is export materials, which used by exported mesh objects. By default is true
+				<li> <code>[export_cameras]</code>: true or false. Is export camera objects. By default is true
+				<li> <code>[export_animations]</code>: true or false. Is export objects transform animations. By default is true
+				<li> <code>[animation_frames_per_second]</code>: float. The number of frames in one second for exported animations. By default is 30.0
+				<li> <code>[animation_start]</code>: integer. The start frame of the animations. by default is 1
+				<li> <code>[animation_end]</code>: integer. The end frame of the animations. By default is 100
+				<li> <code>[export_hide]</code>: true or false. Is export hidden object. By default is false
+			</ul>
 			
 			
         </div>
