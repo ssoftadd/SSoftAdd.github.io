@@ -1,0 +1,75 @@
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Some Softimage Addons</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	
+	<body>
+		<div class="content_wrapper">
+        <div class="content">
+			<img src="images/sycles_label_2_1.png" class="center"/>
+			<p class="lastUpdate">Last update: 12.01.2023</p>
+			<p class="backLink"><a href="index.html">Back to the main page</a></p>
+			
+			<p><b>Description: </b>This is the modern version of the <a class="generalLink" href="https://docs.blender.org/manual/en/dev/render/cycles/">Cycles</a> render integration into Softimage. Previous version 1.x can be downloaded from <a class="generalLink" href="syclesPage.html">this</a> page. The old version will not be updated anymore.</p>
+			
+			<p>This version is open sourced. Sources hosted on <a class="generalLink" href="https://github.com/Tugcga/Sycles">GitHub</a>. Addon version 2.x conceptually is very close to the previous generation Sycles 1.x. Most documentation is valid, but there are some differences on UI.</p>
+			
+			<p><b>How to install:</b> download addon from <a class="generalLink" href="https://github.com/Tugcga/Sycles/releases/download/addon.2.1.0/Sycles_2_1_0.xsiaddon">here</a>. This distributive does not contains libraries for gpu rendering. You can download it from <a class="generalLink" href="https://github.com/Tugcga/Sycles/releases/download/binaries.2.1/lib.zip">here</a>. Unpack the archive and place <i>lib</i> folder to the <i>\Sycles_2_1_0\Application\Plugins\</i> folder near the file <i>config.ini</i></p>
+			
+			<p><b>What is supported from Softimage:</b></p>
+			<ol>
+				<li> Polygon meshes and hair geometry
+				<li> Texture coordinates
+				<li> Vertex colors
+				<li> Shaderball preview. For materials, shader nodes and texture nodes
+				<li> Basic limited support of the following buil-in Softimage shader nodes: <i>Phong</i>, <i>Lambert</i>, <i>Hair Shading</i>, <i>Image</i>, converters between <i>vector</i>, <i>color</i> and <i>scalar</i>
+				<li> Ambience global environment light
+				<li> Limited support of built-in Softimage light sources
+				<li> Model instances
+				<li> ICE strands geometry
+				<li> ICE poitcloud instances
+				<li> ICE geometry attributes (<i>vector</i>, <i>color</i> and <i>scalar</i>) with context <i>per-point</i> and <i>per-object</i>
+				<li> Volume rendering. In particular supports emFluid, Explosia FX and openVDB for Softimage volumes
+				<li> Special VDB Primitive for rendering vdbs without ICE
+				<li> Output multilayered exr file with all rendered passe
+				<li> Rendermaps
+			</ol>
+			
+			<p><b>What is supported from Cycles:</b></p>
+			<ol>
+				<li> CPU and GPU rendering. In particular multidevices are supported. This allows to use cpu and gpu simultaneously
+				<li> All Cycles shader nodes
+				<li> OSL shaders
+				<li> OpenColorIO profiles (Blender profile included)
+				<li> All Cycles output passes (Combined, Depth, Normal and so on)
+				<li> Color and value shader AOVs
+				<li> Lightgroups
+				<li> Cycles camera properties, in particular all panorama modes
+				<li> Cycles light sources
+				<li> Denoising by using <a class="generalLink" href="https://www.openimagedenoise.org/">Open Image Denoise</a> and <a class="generalLink" href="https://developer.nvidia.com/optix-denoiser">OptiX denoiser</a>
+			</ol>
+			
+			<p><b>Limitations:</b></p>
+			<ol>
+				<li> Addon use Cycles built-in mesh subdivision functionality. In some cases the subdivision produce not the same uv-subdivisions as Softimage
+				<li> The following image formats supported for UDIM image textures: *.jpeg, *.jpg, *.png, *.bmp, *.hdr, *.psd, *.tga, *.gif, *.pic, *.pgm, *.ppm, *.exr
+				<li> Tested only for cpu, cuda and optix render devices
+				<li> Addons for previous generation Sycles 1.x works in most cases. All shader nodes are the same, except ImageTexture shader node. In Sycles 2.x this node use special image widget, but in Sycles 1.x the simple path string field was used. So, textures from previous shader compounds may not loads properly
+				<li> Deformation motion blur works only for non-subdivided polygon meshes
+			</ol>
+
+			<p><b>Remarks: </b> 
+			<ol>
+				<li> All copies of a light source shares the same shader. Make it local to tweak shader parameters independently
+				<li> Does not turn on the OSL-shaders support, if it is not necessary. This increase the render time
+				<li> Does not turn on the deformation blur of objects, if it is not really necessary. It can dramatically increase the render time
+				<li> For using UDIM-textures, select as input texture only the first one with the tile 1001, all other textures will be used automatically. The render find the tile of the texture by parsing it name from right to left, so the texture with the name 1001_diffuse_1002.png will be interpreted as 1002 tile
+			</ol>
+			</p>
+        </div>
+		</div>
+	</body>
+
+</html>
