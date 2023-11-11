@@ -9,13 +9,14 @@
 		<div class="content_wrapper">
         <div class="content">
 			<img src="images/gltf_banner.png" class="center"/>
-			<p class="lastUpdate">Last update: 11.03.2023</p>
+			<p class="lastUpdate">Last update: 11.11.2023</p>
 			<p class="backLink"><a href="index.html">Back to the main page</a></p>
 			
 			<p><b>Description: </b> This addon allows to import/export *.gltf and *.glb files into/from Softimage. It based on <a class="generalLink" href="https://github.com/syoyo/tinygltf">tinygltf</a> library. The addon supports the following items for import from gltf/glb scenes:</p>
 			<ul class="left">
 				<li> Scene hierarchy
 				<li> Cameras
+				<li> Lights
 				<li> Polygonmesh objects. Import the following mesh attributes:
 					<ul class="left">
 						<li> Vertex positions
@@ -33,6 +34,7 @@
 			<p>For export the addon supports the following scene items:</p>
 			<ul class="left">
 				<li> Cameras
+				<li> Lights
 				<li> Polygonmesh objects. Export the following mesh attributes:
 					<ul class="left">
 						<li> Vertex positions
@@ -48,7 +50,7 @@
 				<li> Transform animations
 			</ul>
 			
-			<p><b>Download: </b><a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO/releases/download/r.4/Softimage_GLTF_r4.xsiaddon">Softimage GLTF R.4</a>. There are <a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO">sources</a> of the addon on the GitHub.</p>
+			<p><b>Download: </b><a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO/releases/download/r.5/Softimage_GLTF_r5.xsiaddon">Softimage GLTF R.5</a>. There are <a class="generalLink" href="https://github.com/Tugcga/Softimage-GLTF-IO">sources</a> of the addon on the GitHub.</p>
 			
 			<p><b>How to use: </b> Install as usual addon for Softimage.</p>
 			
@@ -110,6 +112,8 @@
 				<li> Embed Images - if activated, then all textures for materials will be saved inside output file using base64 encoder. If the parameter is deactivated, then textures will be copies to the same directory as output file
 				<li> Embed Buffer - if activated, then (as for images) binary scene data will be saved inside output file. If deactivated, then this file will be created in the same directory as output file with the same name (but extension *.bin)
 				<li> Export Mode - if the mode is <i>Selected objects</i>, then only selected objects with all sub-objects will be exported. The mode <i>Whole scene</i> is equivalent to select the scene root node
+				<li> Meshes - export polygonmesh objects or not
+				<li> Lights - export light sources or not
 				<li> Materials - export materials or not
 				<li> Cameras - export camera objects or not. If deactivated, then all cameras will be exported as null objects
 				<li> Hide Objects - if activated, then hidden (from the view) objects will be exported. If deactivated, then all hidden objects are excluded from exported objects with all sub-objects
@@ -144,7 +148,7 @@
 			
 			<p>Addon introduce two command, which can be used in scripting.</p>
 			
-			<p>Command for import: <code>Application.GLTFImport(file path, [import_normals], [import_uvs], [import_colors], [import_shapes], [import_skin], [import_materials], [import_cameras], [import_animations], [animation_frames_per_second])</code> All arguments, except the first one, are optional</p>
+			<p>Command for import: <code>Application.GLTFImport(file path, [import_normals], [import_uvs], [import_colors], [import_shapes], [import_skin], [import_materials], [import_cameras], [import_lights], [import_animations], [animation_frames_per_second])</code> All arguments, except the first one, are optional</p>
 			
 			<ul class="left">
 				<li> <code>file path</code>: string. This is a full path of the file to import
@@ -155,11 +159,12 @@
 				<li> <code>[import_skin]</code>: true or false. Is import skin envelope data. By default is true
 				<li> <code>[import_materials]</code>: true or false. Is import materials from the input files and assigned it to the scene objects. By default is true
 				<li> <code>[import_cameras]</code>: true or false. Is import cameras from the input file. By default is true
+				<li> <code>[import_lights]</code>: true or false. Is import lights from the input file. By default is true
 				<li> <code>[import_animations]</code>: true or false. Is import transform animations. By default is false
 				<li> <code>[animation_frames_per_second]</code>: float. The number of frames in one second for animations in the input file. By default is 30.0
 			</ul>
 			
-			<p>Command for export: <code>Application.GLTFExport(objects, file_path, [embed_images], [embed_buffers], [export_uvs], [export_colors], [export_shapes], [export_skin], [export_materials], [export_cameras], [export_animations], [animation_frames_per_second], [animation_start], [animation_end], [export_hide])</code> All arguments, except the first and the second, are optional</p>
+			<p>Command for export: <code>Application.GLTFExport(objects, file_path, [embed_images], [embed_buffers], [export_uvs], [export_colors], [export_shapes], [export_skin], [export_meshes], [export_lights], [export_materials], [export_cameras], [export_animations], [animation_frames_per_second], [animation_start], [animation_end], [export_hide])</code> All arguments, except the first and the second, are optional</p>
 			
 			<ul class="left">
 				<li> <code>objects</code>: array. The array of objects to export
@@ -170,6 +175,8 @@
 				<li> <code>[export_colors]</code>: true or false. Is export mesh vertex colors. By default is true
 				<li> <code>[export_shapes]</code>: true or false. Is export mesh shape deforms as point position targets. By default is true
 				<li> <code>[export_skin]</code>: true or false. Is export mesh envelope weights. By default is true
+				<li> <code>[export_meshes]</code>: true or false. Is export polygonmesh objects. By default is true. If it's false, then export each mesh as null node
+				<li> <code>[export_lights]</code>: true or false. Is export light sources. By default is true
 				<li> <code>[export_materials]</code>: true or false. Is export materials, which used by exported mesh objects. By default is true
 				<li> <code>[export_cameras]</code>: true or false. Is export camera objects. By default is true
 				<li> <code>[export_animations]</code>: true or false. Is export objects transform animations. By default is true
