@@ -8,15 +8,15 @@
 	<body>
 		<div class="content_wrapper">
         <div class="content">
-			<img src="images/sycles_label_2_3.png" class="center"/>
-			<p class="lastUpdate">Last update: 10.08.2025</p>
+			<img src="images/sycles_label_2_4.png" class="center"/>
+			<p class="lastUpdate">Last update: 18.08.2026</p>
 			<p class="backLink"><a href="index.html">Back to the main page</a></p>
 			
 			<p><b>Description: </b>This is the modern version of the <a class="generalLink" href="https://docs.blender.org/manual/en/dev/render/cycles/">Cycles</a> render integration into Softimage. Previous version 1.x can be downloaded from <a class="generalLink" href="syclesPage.html">this</a> page. The old version will not be updated anymore.</p>
 			
 			<p>This version is open sourced. Sources hosted on <a class="generalLink" href="https://github.com/Tugcga/Sycles">GitHub</a>. Addon version 2.x conceptually is very close to the previous generation Sycles 1.x. Most documentation is valid, but there are some differences on UI.</p>
 			
-			<p><b>How to install:</b> download addon from <a class="generalLink" href="https://github.com/Tugcga/Sycles/releases/download/addon.2.3.2/Sycles_2_3_2.xsiaddon">here</a>. Install as usual addon.</p>
+			<p><b>How to install:</b> download addon from <a class="generalLink" href="https://github.com/Tugcga/Sycles/releases/download/addon.2.4/Sycles_2_4.xsiaddon">here</a>. Install as usual addon.</p>
 			
 			<p><b>What is supported from Softimage:</b></p>
 			<ol>
@@ -54,7 +54,8 @@
 			
 			<p><b>Limitations:</b></p>
 			<ol>
-				<li> Addon use Cycles built-in mesh subdivision functionality. In some cases the subdivision produce not the same uv-subdivisions as Softimage
+				<!--<li> Addon use Cycles built-in mesh subdivision functionality. In some cases the subdivision produce not the same uv-subdivisions as Softimage-->
+				<li> OSL shading model can be used only with CPU render device
 				<li> The following image formats supported for UDIM image textures: *.jpeg, *.jpg, *.png, *.bmp, *.hdr, *.psd, *.tga, *.gif, *.pic, *.pgm, *.ppm, *.exr
 				<li> Tested only for cpu, cuda and optix render devices
 				<li> Addons for previous generation Sycles 1.x works in most cases. All shader nodes are the same, except ImageTexture shader node. In Sycles 2.x this node use special image widget, but in Sycles 1.x the simple path string field was used. So, textures from previous shader compounds may not loads properly
